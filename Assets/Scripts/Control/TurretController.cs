@@ -21,7 +21,7 @@ namespace Game.Control
 
         private void InteractWithAim()
         {
-            GetComponent<TurretAim>().StartAiming();
+            GetComponentInChildren<TurretAim>().Aim();
         }
     }
 }

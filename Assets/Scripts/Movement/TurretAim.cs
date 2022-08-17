@@ -8,6 +8,7 @@ namespace Game.Control
     public class TurretAim : MonoBehaviour
     {
         [SerializeField] GameObject pivot;
+        [SerializeField] GameObject turretBase;
 
         private List<GameObject> enemies = new List<GameObject>();
         private Transform target;
@@ -17,7 +18,7 @@ namespace Game.Control
             Debug.Log($"Enemies in range: {enemies.Count}");
         }
 
-        public void StartAiming()
+        public void Aim()
         {
             if (enemies.Count == 0)
             {
@@ -43,7 +44,7 @@ namespace Game.Control
             var lookPos = target - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = rotation;
+            turretBase.transform.rotation = rotation;
         }
 
         private void RotatePivot(Transform target)
