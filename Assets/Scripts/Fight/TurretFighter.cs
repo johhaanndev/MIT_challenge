@@ -34,7 +34,6 @@ namespace Game.Fight
         }
 
 
-
         public void ShootBehaviour()
         {
             var enemy = aim.GetClosestEnemy();
