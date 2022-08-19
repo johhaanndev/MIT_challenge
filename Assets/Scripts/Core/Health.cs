@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Health
+namespace Game.Core
 {
     public class Health : MonoBehaviour
     {
@@ -18,6 +19,11 @@ namespace Game.Health
         void Update()
         {
 
+        }
+
+        internal bool IsDead()
+        {
+            return false;
         }
     }
 }

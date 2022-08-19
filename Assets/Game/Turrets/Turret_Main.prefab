@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114717333665041956}
   - component: {fileID: 54460583120269746}
   - component: {fileID: 6789111407119962873}
+  - component: {fileID: 114814852406481016}
   m_Layer: 0
   m_Name: Turret_Main
   m_TagString: Untagged
@@ -129,6 +130,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 0}
   turretBase: {fileID: 123167927971582720}
+--- !u!114 &114814852406481016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969047147389451202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa9d7f7bee3e454da3c1d544ff5255b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingSpot: {fileID: 0}
+  projectile: {fileID: 9020859396517599125, guid: b795d9df1b6365b4e927f80949fc3355,
+    type: 3}
+  projectileSpeed: 0
+  timeBetweenAttacks: 0
 --- !u!1001 &1523012333420444363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,7 +427,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
 --- !u!4 &3967783498528088715 stripped
 Transform:
@@ -472,7 +495,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
 --- !u!4 &4360603395643469941 stripped
 Transform:
@@ -535,7 +563,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
 --- !u!4 &4712820106071693989 stripped
 Transform:
@@ -661,7 +694,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6525612, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf2139b42b42c8c4a96e509af12fe05d, type: 3}
 --- !u!4 &6685956821019737672 stripped
 Transform:
