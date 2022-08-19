@@ -12,68 +12,84 @@ namespace Game.Fight
         [SerializeField] float weaponRange = 2.0f;
         [SerializeField] float timeBetweenAttacks = 1.0f;
         [SerializeField] float weaponDamage = 5.0f;
+        [SerializeField] GameObject firingSpot;
 
-        private Health target;
+        private Health turretTarget;
         private float timeSinceLastAttack = Mathf.Infinity;
 
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null)
+            if (turretTarget == null)
                 return;
 
-            if (target.IsDead())
+            if (turretTarget.IsDead())
                 return;
 
-            if (target == null)
+            if (turretTarget == null)
                 return;
 
-            Debug.Log($"Is in range? {GetIsInRange()}");
             if (!GetIsInRange())
             {
-                GetComponent<EnemyMover>().MoveTo(target.transform.position);
+                GetComponent<EnemyMover>().MoveTo(turretTarget.transform.position);
             }
             else
             {
                 GetComponent<EnemyMover>().Cancel();
-                AttackBehaviour();
+                StartAttack();
             }
         }
 
-        private void AttackBehaviour()
-        {
-            transform.LookAt(target.transform.position);
+        private void StartAttack()
+        { 
+            transform.LookAt(turretTarget.transform.position);
 
             if (timeSinceLastAttack >= timeBetweenAttacks)
             {
                 timeSinceLastAttack = 0;
+                Shoot(firingSpot.transform.position, turretTarget.transform.position);
                 TriggerAttack();
             }
 
         }
 
+        private void Shoot(Vector3 from, Vector3 targetPosition)
+        {
+            float maxRange = weaponRange + 2; // + 2 just to be sure
+            RaycastHit hit;
+            if (Vector3.Distance(from, targetPosition) < maxRange)
+            {
+                if (Physics.Raycast(from, (targetPosition - from), out hit, maxRange))
+                {
+                    if (hit.transform.CompareTag("Player"))
+                    {
+                        Hit(hit.transform.GetComponent<Health>());
+                    }
+                }
+            }
+        }
+
         private void TriggerAttack()
         {
-            //GetComponent<Animator>().ResetTrigger("stopAttack");
-            //GetComponent<Animator>().SetTrigger("attack");
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         /// <summary>
         /// Animation Even when attacking
         /// </summary>
-        private void Hit()
+        private void Hit(Health target)
         {
             if (target == null)
                 return;
 
-            Debug.Log("Hit!");
-            //target.TakeDamage(weaponDamage);
+            target.TakeDamage(weaponDamage);
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, turretTarget.transform.position) < weaponRange;
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -88,22 +104,22 @@ namespace Game.Fight
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            target = combatTarget.GetComponent<Health>();
+            turretTarget = combatTarget.GetComponent<Health>();
         }
 
         public void Cancel()
         {
             StopAttack();
-            target = null;
+            turretTarget = null;
             GetComponent<EnemyMover>().Cancel();
         }
 
         private void StopAttack()
         {
-            //GetComponent<Animator>().ResetTrigger("attack");
-            //GetComponent<Animator>().SetTrigger("stopAttack");
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public void SetTarget(GameObject target) => this.target = target.GetComponent<Health>();
+        public void SetTarget(GameObject target) => this.turretTarget = target.GetComponent<Health>();
     }
 }

@@ -39,7 +39,10 @@ namespace Game.Control
                 return;
 
             if (!InAttackRangeOfTarget())
+            {
                 PursueBehaviour();
+                return;
+            }
 
             AttackBehaviour();
         }
@@ -52,7 +55,6 @@ namespace Game.Control
 
         private void PursueBehaviour()
         {
-            Debug.Log($"Pursuing turret: {target.name}");
             mover.StartMoveAction(target.transform.position);
 
         }

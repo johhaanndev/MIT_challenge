@@ -7,23 +7,27 @@ namespace Game.Core
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] float healthPoints;
+        [SerializeField] float healthPoints = 100;
 
-        // Start is called before the first frame update
-        void Start()
+        private bool isDead = false;
+
+        public bool IsDead() => isDead;
+
+        public void TakeDamage(float damage)
         {
-
+            healthPoints = Mathf.Max(healthPoints - damage, 0);
+            if (healthPoints == 0)
+                Die();
+            Debug.Log($"{name} Taking {damage} points of damage. Current health: {healthPoints}");
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Die()
         {
+            if (isDead)
+                return;
 
-        }
-
-        internal bool IsDead()
-        {
-            return false;
+            isDead = true;
+            Debug.Log("turret destroyed");
         }
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6690662130401908646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5464418474653304105}
+  m_Layer: 0
+  m_Name: ShootSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5464418474653304105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690662130401908646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.074, y: 1.461, z: 0.798}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6855795211394311809}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2255334040449603196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,6 +125,7 @@ MonoBehaviour:
   weaponRange: 15
   timeBetweenAttacks: 1
   weaponDamage: 5
+  firingSpot: {fileID: 6690662130401908646}
 --- !u!195 &6628712722379789569
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -213,6 +244,12 @@ PrefabInstance:
 --- !u!1 &6855795211394415265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100138, guid: 2d819a1797301ba4dbaae501052d9344,
+    type: 3}
+  m_PrefabInstance: {fileID: 6855795211394448779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6855795211394311809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400138, guid: 2d819a1797301ba4dbaae501052d9344,
     type: 3}
   m_PrefabInstance: {fileID: 6855795211394448779}
   m_PrefabAsset: {fileID: 0}
