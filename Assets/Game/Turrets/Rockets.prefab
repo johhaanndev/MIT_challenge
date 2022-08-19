@@ -88,6 +88,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3696664677123695499}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5651382767087659831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9016362993066641596, guid: 2ef213b31785b1b4c8d627456a6889ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 3696664677123695499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8780611542091993347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,20 +101,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: pivot
-      value: 
-      objectReference: {fileID: 6224960861602919108}
-    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: healthPoints
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 1969047147389451202, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Name
       value: Rockets
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: ShootForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: shootingSpot
+      value: 
+      objectReference: {fileID: 5651382767087659831}
+    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: healthPoints
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5345287988728189508, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -180,6 +196,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 6224960861602919108}
     - target: {fileID: 5438573486707981172, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_LocalPosition.x

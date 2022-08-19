@@ -15,7 +15,7 @@ namespace Game.Control
 
         void Update()
         {
-            Debug.Log($"Enemies in range: {enemies.Count}");
+
         }
 
         public void Aim()
@@ -25,15 +25,8 @@ namespace Game.Control
                 return;
             }
 
-            var closestDistance = 50f;
-            foreach(var enemy in enemies)
-            {
-                if ((enemy.transform.position - transform.position).magnitude < closestDistance)
-                {
-                    closestDistance = (enemy.transform.position - transform.position).magnitude;
-                    target = enemy.transform;
-                }
-            }
+            var closestDistance = 100f;
+            target = GetClosestEnemy();
 
             RotateBase(target.position);
             RotatePivot(target);
@@ -53,6 +46,21 @@ namespace Game.Control
             Mathf.Clamp(pivot.transform.rotation.x, 0, 0.35f);
         }
 
+        public Transform GetClosestEnemy()
+        {
+            var closestDistance = 100f;
+            foreach (var enemy in enemies)
+            {
+                if ((enemy.transform.position - transform.position).magnitude < closestDistance)
+                {
+                    closestDistance = (enemy.transform.position - transform.position).magnitude;
+                    target = enemy.transform;
+                }
+            }
+
+            return target;
+        }
+
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Enemy"))
@@ -67,6 +75,11 @@ namespace Game.Control
             {
                 enemies.Remove(other.gameObject);
             }
+        }
+
+        public bool IsEnemyInRange()
+        {
+            return enemies.Count > 0;
         }
     }
 }
