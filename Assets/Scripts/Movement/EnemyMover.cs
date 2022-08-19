@@ -24,7 +24,7 @@ namespace Game.Movement
         void Update()
         {
             agent.enabled = !health.IsDead();
-            //UpdateAnimator();
+            UpdateAnimator();
         }
 
         public void StartMoveAction(Vector3 destination)
@@ -42,6 +42,14 @@ namespace Game.Movement
         public void Cancel()
         {
             agent.isStopped = true;
+        }
+
+        private void UpdateAnimator()
+        {
+            Vector3 velocity = agent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
     }
 
