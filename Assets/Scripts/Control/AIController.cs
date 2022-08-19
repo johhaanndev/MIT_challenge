@@ -49,14 +49,12 @@ namespace Game.Control
 
         private void AttackBehaviour()
         {
-            fighter.SetTarget(target);
-            Debug.Log($"{gameObject.name} Attacking: {target.name}");
+            fighter.AttackAction(target);
         }
 
         private void PursueBehaviour()
         {
             mover.StartMoveAction(target.transform.position);
-
         }
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
@@ -79,6 +77,11 @@ namespace Game.Control
             target = GetClosestTurret(turrets);
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
             return distanceToTarget <= attackRange;
+        }
+
+        public void DeleteTurretOnDestroy(GameObject turret)
+        {
+            turrets.Remove(turret);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Game.Core;
+﻿using Game.Control;
+using Game.Core;
 using Game.Movement;
 using System;
 using System.Collections;
@@ -54,6 +55,12 @@ namespace Game.Fight
 
         }
 
+        internal void AttackAction(GameObject target)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            turretTarget = target.GetComponent<Health>();
+        }
+
         private void Shoot(Vector3 from, Vector3 targetPosition)
         {
             float maxRange = weaponRange + 2; // + 2 just to be sure
@@ -85,20 +92,16 @@ namespace Game.Fight
                 return;
 
             target.TakeDamage(weaponDamage);
+            if (target.IsDead())
+            {
+                GetComponent<AIController>().DeleteTurretOnDestroy(target.gameObject);
+                Cancel();
+            }
         }
 
         private bool GetIsInRange()
         {
             return Vector3.Distance(transform.position, turretTarget.transform.position) < weaponRange;
-        }
-
-        public bool CanAttack(GameObject combatTarget)
-        {
-            if (combatTarget == null)
-                return false;
-
-            Health targetToCheck = combatTarget.GetComponent<Health>();
-            return targetToCheck != null && !targetToCheck.IsDead();
         }
 
         public void Attack(GameObject combatTarget)
@@ -120,6 +123,6 @@ namespace Game.Fight
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public void SetTarget(GameObject target) => this.turretTarget = target.GetComponent<Health>();
+        //public void SetTarget(GameObject target) => this.turretTarget = target.GetComponent<Health>();
     }
 }

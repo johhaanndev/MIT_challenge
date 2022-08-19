@@ -27,7 +27,6 @@ namespace Game.Core
                 return;
 
             isDead = true;
-            Debug.Log("turret destroyed");
         }
     }
 }

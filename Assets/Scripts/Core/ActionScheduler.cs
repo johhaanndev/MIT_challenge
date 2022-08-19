@@ -10,6 +10,7 @@ namespace Game.Core
 
         public void StartAction(IAction action)
         {
+            Debug.Log($"Current action to cancel: {currentAction}. New action {action}");
             if (currentAction == action)
                 return;
 

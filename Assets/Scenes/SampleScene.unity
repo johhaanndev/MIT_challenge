@@ -327,6 +327,11 @@ PrefabInstance:
       propertyPath: timeBetweenAttacks
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2391091461821956666, guid: 2660c6b40b18dfc4094f5abc7870d587,
+        type: 3}
+      propertyPath: healthPoints
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2660c6b40b18dfc4094f5abc7870d587, type: 3}
 --- !u!1 &402135682
