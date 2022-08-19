@@ -1,4 +1,5 @@
 ﻿using Game.Core;
+using Game.Fight;
 using Game.Movement;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,11 +12,10 @@ namespace Game.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float attackRange;
-        [Range(0, 1)]
-        [SerializeField] float speedFraction = 0.2f;
 
         private EnemyMover mover;
-        private Health health; 
+        private Health health;
+        private EnemyFighter fighter;
 
         private List<GameObject> turrets = new List<GameObject>();
         private GameObject target;
@@ -25,6 +25,7 @@ namespace Game.Control
         {
             mover = GetComponent<EnemyMover>();
             health = GetComponent<Health>();
+            fighter = GetComponent<EnemyFighter>();
             turrets = GameObject.FindGameObjectsWithTag("Player").ToList();
         }
 
@@ -45,13 +46,14 @@ namespace Game.Control
 
         private void AttackBehaviour()
         {
+            fighter.SetTarget(target);
             Debug.Log($"{gameObject.name} Attacking: {target.name}");
         }
 
         private void PursueBehaviour()
         {
             Debug.Log($"Pursuing turret: {target.name}");
-            mover.StartMoveAction(target.transform.position, speedFraction);
+            mover.StartMoveAction(target.transform.position);
 
         }
 

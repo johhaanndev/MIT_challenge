@@ -42,8 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2309ab41dace38d4abdcc382ebfdd827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
-  speedFraction: 0.2
+  attackRange: 15
 --- !u!114 &114255206513987128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f4f2b8b5ba9824182c926c58fddab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
 --- !u!114 &114665707864131420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +80,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bd80daafd14ce4090e01ee68e734fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114785929095528196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855795211394415265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5eb75425c103645ac3ec38837c3099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRange: 15
+  timeBetweenAttacks: 1
+  weaponDamage: 5
 --- !u!195 &6628712722379789569
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -92,7 +105,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.37
-  m_Speed: 10
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 5000

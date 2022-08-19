@@ -1,5 +1,6 @@
 ﻿using Game.Core;
 using Game.Fight;
+using Game.Movement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
