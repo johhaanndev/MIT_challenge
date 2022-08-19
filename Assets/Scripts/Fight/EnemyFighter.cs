@@ -23,7 +23,9 @@ namespace Game.Fight
             timeSinceLastAttack += Time.deltaTime;
 
             if (turretTarget == null)
+            {
                 return;
+            }
 
             if (turretTarget.IsDead())
                 return;
@@ -33,6 +35,7 @@ namespace Game.Fight
 
             if (!GetIsInRange())
             {
+                Debug.Log("Not in range");
                 GetComponent<EnemyMover>().MoveTo(turretTarget.transform.position);
             }
             else
@@ -59,6 +62,7 @@ namespace Game.Fight
         {
             GetComponent<ActionScheduler>().StartAction(this);
             turretTarget = target.GetComponent<Health>();
+            Debug.Log(turretTarget.name);
         }
 
         private void Shoot(Vector3 from, Vector3 targetPosition)
@@ -122,7 +126,5 @@ namespace Game.Fight
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
-
-        //public void SetTarget(GameObject target) => this.turretTarget = target.GetComponent<Health>();
     }
 }

@@ -9,7 +9,6 @@ namespace Game.Movement
 
     public class EnemyMover : MonoBehaviour, IAction
     {
-        private Transform target;
         private NavMeshAgent agent;
         private Health health;
 

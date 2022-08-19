@@ -59,6 +59,12 @@ namespace Game.Control
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
         {
+            if (turrets.Count == 0)
+            {
+                fighter.Cancel();
+                return null;
+            }
+
             float minDistance = Mathf.Infinity;
             foreach (var turret in turrets)
             {
