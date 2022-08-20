@@ -26,6 +26,11 @@ namespace Game.Core
                 return;
 
             isDead = true;
+            if (gameObject.GetComponent<Animator>() != null)
+            {
+                GetComponent<Animator>().SetTrigger("die");
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+            }
         }
     }
 }

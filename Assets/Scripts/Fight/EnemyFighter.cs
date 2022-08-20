@@ -62,7 +62,6 @@ namespace Game.Fight
         {
             GetComponent<ActionScheduler>().StartAction(this);
             turretTarget = target.GetComponent<Health>();
-            Debug.Log(turretTarget.name);
         }
 
         private void Shoot(Vector3 from, Vector3 targetPosition)

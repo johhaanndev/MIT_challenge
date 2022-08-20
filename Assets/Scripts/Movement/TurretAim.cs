@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,6 @@ namespace Game.Movement
 
         private List<GameObject> enemies = new List<GameObject>();
         private Transform target;
-
-        void Update()
-        {
-
-        }
 
         public void Aim()
         {
@@ -54,7 +50,8 @@ namespace Game.Movement
                 if ((enemy.transform.position - transform.position).magnitude < closestDistance)
                 {
                     closestDistance = (enemy.transform.position - transform.position).magnitude;
-                    target = enemy.transform;
+                    if (!enemy.GetComponent<Health>().IsDead())
+                        target = enemy.transform;
                 }
             }
 

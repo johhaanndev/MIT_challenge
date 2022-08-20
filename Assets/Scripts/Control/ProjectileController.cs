@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace Game.Control
 {
     public class ProjectileController : MonoBehaviour
     {
-        [SerializeField] float timeToLive;
+        [SerializeField] float damage = 5;
+        [SerializeField] float timeToLive = 3;
 
         private float time = 0;
         // Start is called before the first frame update
@@ -31,6 +33,12 @@ namespace Game.Control
         {
             if (other.CompareTag("Enemy") || other.CompareTag("Environment"))
             {
+                if (other.CompareTag("Enemy"))
+                {
+                    other.GetComponent<Health>().TakeDamage(damage);
+                    Debug.Log("Hitting enemy");
+                }
+
                 Destroy(gameObject);
             }
         }
