@@ -57,7 +57,8 @@ namespace Game.Control
 
         private void PursueBehaviour()
         {
-            mover.StartMoveAction(target.transform.position);
+            if (target != null)
+                mover.StartMoveAction(target.transform.position);
         }
 
         private GameObject GetClosestTurret(List<GameObject> turrets)

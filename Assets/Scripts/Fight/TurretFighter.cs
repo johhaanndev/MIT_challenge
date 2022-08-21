@@ -72,5 +72,15 @@ namespace Game.Fight
             var bullet = Instantiate(projectile, shootingSpot.transform.position, shootingSpot.transform.rotation, null);
             bullet.GetComponent<Rigidbody>().velocity = dir.normalized * ShootForce;
         }
+
+        void OnDrawGizmos()
+        {
+            if (target == null || GetComponent<Health>().IsDead())
+                return;
+
+            Gizmos.color = Color.green;
+            Vector3 direction = target.transform.position - shootingSpot.transform.position;
+            Gizmos.DrawRay(shootingSpot.transform.position, direction);
+        }
     }
 }
