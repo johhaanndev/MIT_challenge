@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Game.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Control
+namespace Game.Movement
 {
     public class TurretAim : MonoBehaviour
     {
@@ -12,11 +13,6 @@ namespace Game.Control
 
         private List<GameObject> enemies = new List<GameObject>();
         private Transform target;
-
-        void Update()
-        {
-
-        }
 
         public void Aim()
         {
@@ -27,7 +23,8 @@ namespace Game.Control
 
             var closestDistance = 100f;
             target = GetClosestEnemy();
-
+            if (target.GetComponent<Health>().IsDead())
+                enemies.Remove(target.gameObject);
             RotateBase(target.position);
             RotatePivot(target);
         }
@@ -54,7 +51,8 @@ namespace Game.Control
                 if ((enemy.transform.position - transform.position).magnitude < closestDistance)
                 {
                     closestDistance = (enemy.transform.position - transform.position).magnitude;
-                    target = enemy.transform;
+                    if (!enemy.GetComponent<Health>().IsDead())
+                        target = enemy.transform;
                 }
             }
 

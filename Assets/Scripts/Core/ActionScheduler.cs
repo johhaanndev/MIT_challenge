@@ -22,7 +22,6 @@ namespace Game.Core
 
         public void CancelCurrentAction()
         {
-            Debug.Log("Cancelling current action");
             StartAction(null);
         }
     }
