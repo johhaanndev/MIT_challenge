@@ -22,9 +22,11 @@ namespace Game.Movement
             }
 
             var closestDistance = 100f;
+
+            enemies.RemoveAll(x => x.GetComponent<Health>().IsDead());
+
             target = GetClosestEnemy();
-            if (target.GetComponent<Health>().IsDead())
-                enemies.Remove(target.gameObject);
+
             RotateBase(target.position);
             RotatePivot(target);
         }

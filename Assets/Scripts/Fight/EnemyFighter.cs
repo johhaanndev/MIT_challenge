@@ -14,6 +14,7 @@ namespace Game.Fight
         [SerializeField] float timeBetweenAttacks = 1.0f;
         [SerializeField] float weaponDamage = 5.0f;
         [SerializeField] GameObject firingSpot;
+        [SerializeField] LayerMask enemyMask;
 
         private Health turretTarget;
         private float timeSinceLastAttack = Mathf.Infinity;
@@ -46,7 +47,7 @@ namespace Game.Fight
         }
 
         private void StartAttack()
-        { 
+        {
             transform.LookAt(turretTarget.transform.position);
 
             if (timeSinceLastAttack >= timeBetweenAttacks)
@@ -70,7 +71,7 @@ namespace Game.Fight
             RaycastHit hit;
             if (Vector3.Distance(from, targetPosition) < maxRange)
             {
-                if (Physics.Raycast(from, (targetPosition - from), out hit, maxRange))
+                if (Physics.Raycast(from, (targetPosition - from), out hit, maxRange, ~enemyMask))
                 {
                     if (hit.transform.CompareTag("Player"))
                     {
