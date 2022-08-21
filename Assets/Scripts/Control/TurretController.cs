@@ -46,8 +46,6 @@ namespace Game.Control
             return aim.IsEnemyInRange();
         }
 
-
-
         private void InteractWithAim()
         {
             GetComponentInChildren<TurretAim>().Aim();
