@@ -36,7 +36,6 @@ namespace Game.Fight
 
             if (!GetIsInRange())
             {
-                Debug.Log("Not in range");
                 GetComponent<EnemyMover>().MoveTo(turretTarget.transform.position);
             }
             else
@@ -125,6 +124,16 @@ namespace Game.Fight
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        void OnDrawGizmos()
+        {
+            if (turretTarget == null)
+                return;
+
+            Gizmos.color = Color.red;
+            Vector3 direction = turretTarget.transform.position - firingSpot.transform.position;
+            Gizmos.DrawRay(firingSpot.transform.position, direction);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Game.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float attackRange;
+        [SerializeField] int layerIndexToIgnore;
 
         private EnemyMover mover;
         private Health health;
@@ -27,6 +28,8 @@ namespace Game.Control
             health = GetComponent<Health>();
             fighter = GetComponent<EnemyFighter>();
             turrets = GameObject.FindGameObjectsWithTag("Player").ToList();
+
+            Physics.IgnoreLayerCollision(layerIndexToIgnore, layerIndexToIgnore);
         }
 
         // Update is called once per frame
@@ -59,6 +62,8 @@ namespace Game.Control
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
         {
+            turrets.RemoveAll(x => x.GetComponent<Health>().IsDead());
+
             if (turrets.Count == 0)
             {
                 fighter.Cancel();
@@ -81,6 +86,9 @@ namespace Game.Control
         private bool InAttackRangeOfTarget()
         {
             target = GetClosestTurret(turrets);
+            if (target == null)
+                return false;
+
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
             return distanceToTarget <= attackRange;
         }

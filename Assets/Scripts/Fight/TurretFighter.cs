@@ -15,6 +15,8 @@ namespace Game.Fight
         [SerializeField] GameObject projectile;
         [SerializeField] float timeBetweenAttacks;
         [SerializeField] float ShootForce;
+        [SerializeField] float turretDamage;
+        [SerializeField] LayerMask mask;
 
         private TurretAim aim;
 
@@ -38,17 +40,37 @@ namespace Game.Fight
         public void ShootBehaviour()
         {
             var enemy = aim.GetClosestEnemy();
-
-            if (timeSinceLastAttack >= timeBetweenAttacks)
+            if (enemy != null)
             {
-                target = enemy.gameObject;
+                if (timeSinceLastAttack >= timeBetweenAttacks)
+                {
+                    timeSinceLastAttack = 0;
+                    target = enemy.gameObject;
+                    var direction = target.transform.position - shootingSpot.position;
 
-                timeSinceLastAttack = 0;
-                var direction = target.transform.position - shootingSpot.position;
-                var bullet = Instantiate(projectile, shootingSpot.transform.position, shootingSpot.transform.rotation, null);
-                bullet.GetComponent<Rigidbody>().velocity = direction.normalized * ShootForce;
+                    CastRayToEnemy(direction);
+                    InstantiateBullets(direction);
+                }
             }
         }
 
+        private void CastRayToEnemy(Vector3 dir)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~mask))
+            {
+                Debug.Log($"hit from {gameObject.name} to {hit.transform.name}");
+                if (hit.transform.gameObject != null)
+                {
+                    hit.transform.GetComponent<Health>().TakeDamage(turretDamage);
+                }
+            }
+        }
+
+        private void InstantiateBullets(Vector3 dir)
+        {
+            var bullet = Instantiate(projectile, shootingSpot.transform.position, shootingSpot.transform.rotation, null);
+            bullet.GetComponent<Rigidbody>().velocity = dir.normalized * ShootForce;
+        }
     }
 }

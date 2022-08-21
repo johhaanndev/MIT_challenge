@@ -121,6 +121,11 @@ PrefabInstance:
       propertyPath: shootingSpot
       value: 
       objectReference: {fileID: 5651382767087659831}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: turretDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: healthPoints

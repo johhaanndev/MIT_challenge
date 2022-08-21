@@ -7,7 +7,6 @@ namespace Game.Control
 {
     public class ProjectileController : MonoBehaviour
     {
-        [SerializeField] float damage = 5;
         [SerializeField] float timeToLive = 3;
 
         private float time = 0;
@@ -27,20 +26,6 @@ namespace Game.Control
             }
 
             time += Time.deltaTime;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Enemy") || other.CompareTag("Environment"))
-            {
-                if (other.CompareTag("Enemy"))
-                {
-                    other.GetComponent<Health>().TakeDamage(damage);
-                    Debug.Log("Hitting enemy");
-                }
-
-                Destroy(gameObject);
-            }
         }
     }
 }

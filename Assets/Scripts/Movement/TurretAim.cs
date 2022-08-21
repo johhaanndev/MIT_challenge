@@ -26,9 +26,12 @@ namespace Game.Movement
             enemies.RemoveAll(x => x.GetComponent<Health>().IsDead());
 
             target = GetClosestEnemy();
-
-            RotateBase(target.position);
-            RotatePivot(target);
+            
+            if (target != null)
+            {
+                RotateBase(target.position);
+                RotatePivot(target);
+            }
         }
 
         private void RotateBase(Vector3 target)
