@@ -18,7 +18,7 @@ namespace Game.Movement
                 turret.SetActive(true);
                 Debug.DrawLine(ray.origin, hit.point, Color.red);
                 turret.transform.position = hit.point;
-                Debug.Log(hit.point.y);
+
                 positionToInstantiate = turret.transform.position;
             }
             else
@@ -27,13 +27,20 @@ namespace Game.Movement
             }
         }
 
-        public void Drop(GameObject turret)
+        public void Drop(GameObject turretPlanning, GameObject turretPrefab)
         {
-            turret.SetActive(false);
+            turretPlanning.SetActive(false);
+            var colliders = Physics.OverlapSphere(turretPlanning.transform.position, 2f);
+            foreach(var collider in colliders)
+            {
+                if (collider.CompareTag("Player"))
+                {
+                    Debug.Log("Collides with another turret");
+                    return;
+                }
+            }
 
-            Debug.Log($"Position to instantiate: {positionToInstantiate}");
-
-            GameObject turretToInstantiate = Instantiate(turret, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
+            GameObject turretToInstantiate = Instantiate(turretPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
             turretToInstantiate.SetActive(true);
         }
     }

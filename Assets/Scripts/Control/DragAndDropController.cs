@@ -9,7 +9,8 @@ namespace Game.Control
     public class DragAndDropController : MonoBehaviour
     {
         [SerializeField] PhaseChanger phaseChanger;
-        [SerializeField] List<GameObject> turrets;
+        [SerializeField] List<GameObject> turretsPrefab;
+        [SerializeField] List<GameObject> turretsPlanning;
 
         private int turretIndex;
         private Dragger dragger;
@@ -30,12 +31,12 @@ namespace Game.Control
         public void DragBehaviour(int index)
         {
             turretIndex = index;
-            dragger.Drag(turrets[turretIndex]);
+            dragger.Drag(turretsPlanning[turretIndex]);
         }
 
         public void DropBehaviour()
         {
-            dragger.Drop(turrets[turretIndex]);
+            dragger.Drop(turretsPlanning[turretIndex], turretsPrefab[turretIndex]);
         }
     }
 }

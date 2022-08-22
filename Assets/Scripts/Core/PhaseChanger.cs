@@ -19,25 +19,9 @@ namespace Game.Core
             allEnemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void StartFight()
         {
             isFight = true;
-
-            foreach (var turret in allTurrets)
-            {
-                turret.GetComponent<TurretController>().enabled = true;
-            }
-
-            foreach (var enemy in allEnemies)
-            {
-                enemy.GetComponent<AIController>().enabled = true;
-            }
         }
 
         public void AddTurretToList(GameObject turret) => allTurrets.Add(turret);

@@ -13,6 +13,7 @@ namespace Game.Control
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;
+        [SerializeField] PhaseChanger phaseChanger;
 
         private EnemyMover mover;
         private Health health;
@@ -35,6 +36,9 @@ namespace Game.Control
         // Update is called once per frame
         void Update()
         {
+            if (!phaseChanger.GetIsFight())
+                return;
+
             if (health.IsDead())
                 return;
 
