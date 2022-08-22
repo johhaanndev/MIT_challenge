@@ -58,3 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedFraction: 1
+  zoomOutMin: 3
+  zoomOutMax: 15
+  zoomOutDiff: 0.01

@@ -21,6 +21,16 @@ namespace Game.Control
         // Update is called once per frame
         void Update()
         {
+            if (Input.touchCount == 2)
+            {
+                Touch touch0 = Input.GetTouch(0);
+                Touch touch1 = Input.GetTouch(1);
+
+                ZoomBehaviour(touch0, touch1);
+
+                return;
+            }
+
             var hor = joystick.Horizontal;
             var ver = joystick.Vertical;
 
@@ -33,6 +43,11 @@ namespace Game.Control
         private void MovementBehaviour(float hor, float ver)
         {
             mover.Move(hor, ver);
+        }
+
+        private void ZoomBehaviour (Touch touch0, Touch touch1)
+        {
+            mover.Zoom(touch0, touch1);
         }
     }
 
