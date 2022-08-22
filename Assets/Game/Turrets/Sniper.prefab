@@ -30,6 +30,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8012979792275628377, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2918005349104985612, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,22 +90,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8012979792275628377, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 20141669903676439, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
         type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2918005349104499240, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
+    - target: {fileID: 2918005349104499242, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
         type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2918005349104499242, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
+    - target: {fileID: 2918005349104499240, guid: a1a79608a92ae3246a31ddc2cdc1c40d,
         type: 3}
       propertyPath: m_Layer
       value: 2
@@ -135,31 +135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: shootingSpot
-      value: 
-      objectReference: {fileID: 7491153557490472154}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: timeBetweenAttacks
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: ShootForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: turretDamage
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: healthPoints
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5345287988728189508, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -231,16 +206,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: pivot
-      value: 
-      objectReference: {fileID: 4985665595265964234}
-    - target: {fileID: 123167927971582720, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5438573486707981172, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -276,6 +241,42 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 123167927971582720, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: shootingSpot
+      value: 
+      objectReference: {fileID: 7491153557490472154}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: ShootForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: turretDamage
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: bulletTrail
+      value: 
+      objectReference: {fileID: 4740094767596974169, guid: 0f1829859be70ca45b7c2db54e925ac0,
+        type: 3}
+    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: healthPoints
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1523012333420544937, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Layer
@@ -301,6 +302,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 4985665595265964234}
     - target: {fileID: 3277309205632931603, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Layer

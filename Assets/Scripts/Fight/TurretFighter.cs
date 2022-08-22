@@ -12,11 +12,10 @@ namespace Game.Fight
     public class TurretFighter : MonoBehaviour
     {
         [SerializeField] Transform shootingSpot;
-        [SerializeField] GameObject projectile;
         [SerializeField] float timeBetweenAttacks;
-        [SerializeField] float ShootForce;
         [SerializeField] float turretDamage;
         [SerializeField] LayerMask mask;
+        [SerializeField] TrailRenderer bulletTrail;
 
         private TurretAim aim;
 
@@ -49,7 +48,6 @@ namespace Game.Fight
                     var direction = target.transform.position - shootingSpot.position;
 
                     CastRayToEnemy(direction);
-                    InstantiateBullets(direction);
                 }
             }
         }
@@ -59,18 +57,32 @@ namespace Game.Fight
             RaycastHit hit;
             if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~mask))
             {
-                Debug.Log($"hit from {gameObject.name} to {hit.transform.name}");
+                if (!hit.transform.name.Contains("enemy"))
+                    return;
+
                 if (hit.transform.gameObject != null)
                 {
+                    TrailRenderer hotTrail = Instantiate(bulletTrail, shootingSpot.position, Quaternion.identity);
+                    StartCoroutine(SpawnTrail(hotTrail, hit));
                     hit.transform.GetComponent<Health>().TakeDamage(turretDamage);
                 }
             }
         }
 
-        private void InstantiateBullets(Vector3 dir)
+        private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
         {
-            var bullet = Instantiate(projectile, shootingSpot.transform.position, shootingSpot.transform.rotation, null);
-            bullet.GetComponent<Rigidbody>().velocity = dir.normalized * ShootForce;
+            float time = 0;
+            Vector3 startPosition = trail.transform.position;
+            while (time < 1)
+            {
+                trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
+                time += Time.deltaTime / trail.time;
+
+                yield return null;
+            }
+            trail.transform.position = hit.point;
+
+            Destroy(trail.gameObject, trail.time);
         }
 
         void OnDrawGizmos()

@@ -30,6 +30,8 @@ namespace Game.Core
             {
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
+                GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<CapsuleCollider>().enabled = false;
             }
         }
     }

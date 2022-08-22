@@ -151,6 +151,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 4
+  bulletTrail: {fileID: 1159301507344641331, guid: bd44188351817e8408590983c30d3dac,
+    type: 3}
 --- !u!1001 &1523012333420444363
 PrefabInstance:
   m_ObjectHideFlags: 0
