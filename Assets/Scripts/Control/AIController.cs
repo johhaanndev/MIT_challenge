@@ -13,7 +13,8 @@ namespace Game.Control
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;
-        [SerializeField] PhaseChanger phaseChanger;
+        
+        private PhaseChanger phaseChanger;
 
         private EnemyMover mover;
         private Health health;
@@ -25,6 +26,8 @@ namespace Game.Control
         // Start is called before the first frame update
         void Start()
         {
+            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
+
             mover = GetComponent<EnemyMover>();
             health = GetComponent<Health>();
             fighter = GetComponent<EnemyFighter>();
@@ -67,6 +70,7 @@ namespace Game.Control
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
         {
+            Debug.Log($"turrets: {turrets.Count}");
             turrets.RemoveAll(x => x.GetComponent<Health>().IsDead());
 
             if (turrets.Count == 0)
@@ -101,6 +105,12 @@ namespace Game.Control
         public void DeleteTurretOnDestroy(GameObject turret)
         {
             turrets.Remove(turret);
+        }
+
+        public void AddTurretToList(GameObject turretPlaced)
+        {
+            Debug.Log("ADDED TURRET TO ENEMY LIST");
+            turrets.Add(turretPlaced);
         }
     }
 }

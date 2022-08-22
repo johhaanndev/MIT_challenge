@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Control;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Game.Movement
     public class Dragger : MonoBehaviour
     {
         private Vector3 positionToInstantiate;
+
+        [SerializeField] List<GameObject> enemies;
 
         public void Drag(GameObject turret)
         {
@@ -30,18 +33,36 @@ namespace Game.Movement
         public void Drop(GameObject turretPlanning, GameObject turretPrefab)
         {
             turretPlanning.SetActive(false);
-            var colliders = Physics.OverlapSphere(turretPlanning.transform.position, 2f);
-            foreach(var collider in colliders)
+            if (!CanPlaceTurret(turretPlanning))
+                return;
+
+            GameObject turretToInstantiate = Instantiate(turretPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
+            AddTurretToEnemiesList(turretToInstantiate);
+            turretToInstantiate.SetActive(true);
+        }
+
+        private void AddTurretToEnemiesList(GameObject turret)
+        {
+            foreach (var enemy in enemies)
+                enemy.GetComponent<AIController>().AddTurretToList(turret);
+        }
+
+        private bool CanPlaceTurret(GameObject turretPlanning)
+        {
+            var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
+            foreach (var collider in colliders)
             {
                 if (collider.CompareTag("Player"))
                 {
-                    Debug.Log("Collides with another turret");
-                    return;
+                    var distance = Vector3.Distance(collider.transform.position, turretPlanning.transform.position);
+                    if (distance <= 2.5f)
+                    {
+                        return false;
+                    }
                 }
             }
 
-            GameObject turretToInstantiate = Instantiate(turretPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
-            turretToInstantiate.SetActive(true);
+            return true;
         }
     }
 

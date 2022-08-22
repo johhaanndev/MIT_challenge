@@ -9,7 +9,7 @@ SphereCollider:
   m_GameObject: {fileID: 2907753355781923958}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 75
   m_Center: {x: 0, y: 0, z: 0}
@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 1969047147389451202, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Name
-      value: Sniper
+      value: Sniper_turret
       objectReference: {fileID: 0}
     - target: {fileID: 1969047147389451202, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 3277309205632862313, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3883100625938399721, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -239,7 +239,7 @@ PrefabInstance:
     - target: {fileID: 3883100625938399721, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3967783498528004359, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 3967783498528004359, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4360603395643902969, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -259,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 4360603395643902969, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 123167927971582720, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 123167927971582720, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 1523012333420544937, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8898111615250393257, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 8898111615250393257, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4712820106072138025, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -330,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 4712820106072138025, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6067131933711934360, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -340,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 6067131933711934360, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6685956821019805124, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -350,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 6685956821019805124, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
