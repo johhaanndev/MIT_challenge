@@ -22,7 +22,8 @@ namespace Game.Movement
 
         public void Move(float x, float z)
         {
-            transform.position += new Vector3(x, 0, z) * speedFraction;
+            transform.Translate(new Vector3(x, 0, z) * speedFraction);
+            //transform.localPosition += new Vector3(x, 0, z) * speedFraction;
         }
     }
 }
