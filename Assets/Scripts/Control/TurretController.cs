@@ -14,9 +14,14 @@ namespace Game.Control
         private TurretAim aim;
         private Health health;
 
+        private PhaseChanger phaseChange;
+
         // Start is called before the first frame update
         void Start()
         {
+            phaseChange = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
+            phaseChange.AddTurretToList(gameObject);
+
             fighter = GetComponent<TurretFighter>();
             aim = GetComponent<TurretAim>();
             health = GetComponent<Health>();
