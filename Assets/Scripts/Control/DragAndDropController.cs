@@ -21,13 +21,6 @@ namespace Game.Control
             dragger = GetComponent<Dragger>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (phaseChanger.GetIsFight())
-                return;
-        }
-
         public void DragBehaviour(int index)
         {
             turretIndex = index;

@@ -79,6 +79,13 @@ namespace Game.Control
                 return null;
             }
 
+            target = GetTarget(turrets);
+
+            return target;
+        }
+
+        private GameObject GetTarget(List<GameObject> turrets)
+        {
             float minDistance = Mathf.Infinity;
             foreach (var turret in turrets)
             {

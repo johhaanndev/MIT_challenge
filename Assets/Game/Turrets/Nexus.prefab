@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 170034877127089236}
   - component: {fileID: 170034877127921452}
   - component: {fileID: 170034877129004298}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: projector_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,10 @@ GameObject:
   - component: {fileID: 170034877127195544}
   - component: {fileID: 170034877133149688}
   - component: {fileID: 170034877145104724}
-  m_Layer: 0
+  - component: {fileID: 114007556117353004}
+  - component: {fileID: 114421849172366786}
+  - component: {fileID: 54167923821292144}
+  m_Layer: 2
   m_Name: Nexus
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -155,6 +158,47 @@ LODGroup:
     - renderer: {fileID: 170034877129004298}
     - renderer: {fileID: 170034877128973956}
   m_Enabled: 1
+--- !u!114 &114007556117353004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170034877126782288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e114507ae751c6d4eae6211d4b7b7ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114421849172366786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170034877126782288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341771fe7b764864db19f92024823d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
+--- !u!54 &54167923821292144
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170034877126782288}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &170034877126812022
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +210,7 @@ GameObject:
   - component: {fileID: 170034877127078158}
   - component: {fileID: 170034877127972866}
   - component: {fileID: 170034877128973746}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: projector_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +291,7 @@ GameObject:
   - component: {fileID: 170034877127193882}
   - component: {fileID: 170034877127931176}
   - component: {fileID: 170034877128975954}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hologram_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170034877127137866}
   - component: {fileID: 170034877120801638}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +437,7 @@ GameObject:
   - component: {fileID: 170034877127099716}
   - component: {fileID: 170034877127904998}
   - component: {fileID: 170034877128973956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hologram_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +514,7 @@ GameObject:
   - component: {fileID: 170034877127141348}
   - component: {fileID: 170034877146543458}
   - component: {fileID: 170034877146580788}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
