@@ -27,6 +27,8 @@ namespace Game.Fight
             {
                 enemy.GetComponent<Health>().TakeDamage(mineDamage);
             }
+
+            Destroy(gameObject);
         }
     }
 }

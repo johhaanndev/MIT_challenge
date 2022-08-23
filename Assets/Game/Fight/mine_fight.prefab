@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 1254988879210217538}
   - component: {fileID: 1254988879211348610}
   - component: {fileID: 1254988879216684930}
+  - component: {fileID: 114765767638707338}
+  - component: {fileID: 114972621410045686}
+  - component: {fileID: 1394939272651700479}
   m_Layer: 0
-  m_Name: at_mine_LOD0
+  m_Name: mine_fight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,3 +101,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114765767638707338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254988879209421890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec427ee118284424dba08d74ced46b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114972621410045686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254988879209421890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4a55e72f227da42b6847fc0250edaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 0.5
+  explosionRange: 3
+  mineDamage: 30
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!135 &1394939272651700479
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254988879209421890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.0012139995, z: -0.010956988}
