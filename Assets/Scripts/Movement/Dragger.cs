@@ -12,8 +12,8 @@ namespace Game.Movement
 
         [SerializeField] List<GameObject> enemies;
 
-        private GameObject lastTurretPlaced;
-        private List<GameObject> turretsPlaced = new List<GameObject>();
+        private GameObject lastObjectPlaced;
+        private List<GameObject> objectsPlaced = new List<GameObject>();
 
         public void Drag(GameObject turret)
         {
@@ -33,20 +33,22 @@ namespace Game.Movement
             }
         }
 
-        public void Drop(GameObject turretPlanning, GameObject turretPrefab)
+        public void Drop(GameObject turretPlanning, GameObject prefab)
         {
             turretPlanning.SetActive(false);
             if (!CanPlaceTurret(turretPlanning))
                 return;
 
-            GameObject turretToInstantiate = Instantiate(turretPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
-            turretToInstantiate.SetActive(true);
+            GameObject prefabToInstantiate = Instantiate(prefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
+            prefabToInstantiate.SetActive(true);
             
-            AddTurretToEnemiesList(turretToInstantiate);
-            turretsPlaced.Add(turretToInstantiate);
+            if (prefab.name.Contains("Turret"))
+                AddTurretToEnemiesList(prefabToInstantiate);
+    
+            objectsPlaced.Add(prefabToInstantiate);
 
-            if (turretsPlaced.Count > 0)
-                lastTurretPlaced = turretsPlaced[turretsPlaced.Count - 1];
+            if (objectsPlaced.Count > 0)
+                lastObjectPlaced = objectsPlaced[objectsPlaced.Count - 1];
         }
 
         private void AddTurretToEnemiesList(GameObject turret)
@@ -81,15 +83,17 @@ namespace Game.Movement
 
         public void UndoLastTurret()
         {
-            if (lastTurretPlaced != null)
+            if (lastObjectPlaced != null)
             {
-                turretsPlaced.Remove(turretsPlaced[turretsPlaced.Count - 1]);
-                RemoveTurretFromEnemiesList(lastTurretPlaced);
+                objectsPlaced.Remove(objectsPlaced[objectsPlaced.Count - 1]);
 
-                Destroy(lastTurretPlaced.gameObject);
+                if (lastObjectPlaced.name.Contains("Turret"))
+                    RemoveTurretFromEnemiesList(lastObjectPlaced);
 
-                if (turretsPlaced.Count > 0)
-                    lastTurretPlaced = (turretsPlaced[turretsPlaced.Count - 1]);
+                Destroy(lastObjectPlaced.gameObject);
+
+                if (objectsPlaced.Count > 0)
+                    lastObjectPlaced = (objectsPlaced[objectsPlaced.Count - 1]);
             }
             else
                 Debug.Log("No turrets placed");
