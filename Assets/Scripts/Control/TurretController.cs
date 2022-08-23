@@ -10,13 +10,21 @@ namespace Game.Control
 {
     public class TurretController : MonoBehaviour
     {
+        private SphereCollider rangeCollider;
+         
         private TurretFighter fighter;
         private TurretAim aim;
         private Health health;
 
+        private PhaseChanger phaseChanger;
+
         // Start is called before the first frame update
         void Start()
         {
+            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
+            phaseChanger.AddTurretToList(gameObject);
+
+            rangeCollider = GetComponent<SphereCollider>();
             fighter = GetComponent<TurretFighter>();
             aim = GetComponent<TurretAim>();
             health = GetComponent<Health>();
@@ -25,6 +33,9 @@ namespace Game.Control
         // Update is called once per frame
         void Update()
         {
+            if (!phaseChanger.GetIsFight())
+                return;
+
             if (health.IsDead())
                 return;
 

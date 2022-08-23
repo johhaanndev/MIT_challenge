@@ -13,6 +13,8 @@ namespace Game.Control
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;
+        
+        private PhaseChanger phaseChanger;
 
         private EnemyMover mover;
         private Health health;
@@ -24,6 +26,8 @@ namespace Game.Control
         // Start is called before the first frame update
         void Start()
         {
+            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
+
             mover = GetComponent<EnemyMover>();
             health = GetComponent<Health>();
             fighter = GetComponent<EnemyFighter>();
@@ -35,6 +39,9 @@ namespace Game.Control
         // Update is called once per frame
         void Update()
         {
+            if (!phaseChanger.GetIsFight())
+                return;
+
             if (health.IsDead())
                 return;
 
@@ -63,6 +70,7 @@ namespace Game.Control
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
         {
+            Debug.Log($"turrets: {turrets.Count}");
             turrets.RemoveAll(x => x.GetComponent<Health>().IsDead());
 
             if (turrets.Count == 0)
@@ -71,6 +79,13 @@ namespace Game.Control
                 return null;
             }
 
+            target = GetTarget(turrets);
+
+            return target;
+        }
+
+        private GameObject GetTarget(List<GameObject> turrets)
+        {
             float minDistance = Mathf.Infinity;
             foreach (var turret in turrets)
             {
@@ -97,6 +112,18 @@ namespace Game.Control
         public void DeleteTurretOnDestroy(GameObject turret)
         {
             turrets.Remove(turret);
+        }
+
+        public void AddTurretToList(GameObject turretPlaced)
+        {
+            Debug.Log("ADDED TURRET TO ENEMY LIST");
+            turrets.Add(turretPlaced);
+        }
+
+        public void RemoveTurret(GameObject turretPlaced)
+        {
+            Debug.Log("ADDED TURRET TO ENEMY LIST");
+            turrets.Remove(turretPlaced);
         }
     }
 }

@@ -26,8 +26,22 @@ namespace Game.Core
                 return;
 
             isDead = true;
+
+            if (gameObject.name.Contains("Nexus"))
+            {
+                Debug.Log("Nexus destroyed");
+                return;
+            }
+
+            if (gameObject.name.Contains("Turret"))
+            {
+                Debug.Log($"Turret {gameObject.name} destroyed");
+                return;
+            }
+
             if (gameObject.GetComponent<Animator>() != null)
             {
+                Debug.Log("Enemy killed");
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
                 GetComponent<Rigidbody>().useGravity = false;
