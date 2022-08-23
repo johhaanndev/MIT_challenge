@@ -3,20 +3,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Core
 {
     public class Health : MonoBehaviour
     {
         [SerializeField] float healthPoints = 100;
+        [SerializeField] Image healthbar;
 
         private bool isDead = false;
 
         private GameCore gameCore;
 
+        private float maxHealth;
+
         private void Start()
         {
             gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
+            maxHealth = healthPoints;
         }
 
         public bool IsDead() => isDead;
@@ -24,8 +29,17 @@ namespace Game.Core
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
+
+            if (healthbar != null)
+                FillHealthbar(healthPoints);
+
             if (healthPoints == 0)
                 Die();
+        }
+
+        private void FillHealthbar(float currentHealth)
+        {
+            healthbar.fillAmount = currentHealth / maxHealth;
         }
 
         private void Die()

@@ -2,16 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Economy
 {
     public class GameEconomy : MonoBehaviour
     {
         [SerializeField] int money = 500;
+        [SerializeField] Text moneyText; 
 
         void Start()
         {
-            Debug.Log($"Money: {money}");
+            moneyText.text = $"Money: {money}";
         }
 
         public void SpendMoney(int price)
@@ -30,7 +32,12 @@ namespace Game.Economy
 
         private void UpdateEconomyUI()
         {
-            Debug.Log($"Current money: {money}");
+            if (money >= 100)
+                moneyText.text = $"Money: {money}";
+            else if (money >= 10)
+                moneyText.text = $"Money: 0{money}";
+            else 
+                moneyText.text = $"Money: 00{money}";
         }
     }
 }
