@@ -7,6 +7,8 @@ namespace Game.Control
 {
     public class MineController : MonoBehaviour
     {
+        [SerializeField] int price = 5;
+
         private MineFighter fighter;
 
         private void Start()

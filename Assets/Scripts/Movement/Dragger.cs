@@ -1,4 +1,6 @@
 ﻿using Game.Control;
+using Game.Core;
+using Game.Economy;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +12,7 @@ namespace Game.Movement
     {
         private Vector3 positionToInstantiate;
 
+        [SerializeField] GameEconomy gameEconomy;
         [SerializeField] List<GameObject> enemies;
 
         private GameObject lastObjectPlaced;
@@ -17,6 +20,14 @@ namespace Game.Movement
 
         public void Drag(GameObject turret)
         {
+            Debug.Log($"Dragging {turret.name}");
+
+            if (!gameEconomy.CanBuy(turret.GetComponent<ObjectEconomy>().GetPrice()))
+            {
+                Debug.Log("NOT ENOUGH MONEY");
+                return;
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
@@ -33,19 +44,20 @@ namespace Game.Movement
             }
         }
 
-        public void Drop(GameObject turretPlanning, GameObject prefab)
+        public void Drop(GameObject objectPlanning, GameObject objectPrefab)
         {
-            turretPlanning.SetActive(false);
-            if (!CanPlaceTurret(turretPlanning))
+            objectPlanning.SetActive(false);
+            if (!CanPlaceTurret(objectPlanning))
                 return;
 
-            GameObject prefabToInstantiate = Instantiate(prefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
+            GameObject prefabToInstantiate = Instantiate(objectPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
             prefabToInstantiate.SetActive(true);
-            
-            if (prefab.name.Contains("Turret"))
+
+            if (objectPrefab.name.Contains("Turret"))
                 AddTurretToEnemiesList(prefabToInstantiate);
     
             objectsPlaced.Add(prefabToInstantiate);
+            gameEconomy.SpendMoney(objectPrefab.GetComponent<ObjectEconomy>().GetPrice());
 
             if (objectsPlaced.Count > 0)
                 lastObjectPlaced = objectsPlaced[objectsPlaced.Count - 1];
@@ -63,14 +75,18 @@ namespace Game.Movement
                 enemy.GetComponent<AIController>().RemoveTurret(turret);
         }
 
-        private bool CanPlaceTurret(GameObject turretPlanning)
+        private bool CanPlaceTurret(GameObject objectToPlace)
         {
+            var price = objectToPlace.GetComponent<ObjectEconomy>().GetPrice();
+            if (!gameEconomy.CanBuy(price))
+                return false;
+            
             var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
             foreach (var collider in colliders)
             {
                 if (collider.CompareTag("Player"))
                 {
-                    var distance = Vector3.Distance(collider.transform.position, turretPlanning.transform.position);
+                    var distance = Vector3.Distance(collider.transform.position, objectToPlace.transform.position);
                     if (distance <= 2.5f)
                     {
                         return false;
@@ -83,12 +99,16 @@ namespace Game.Movement
 
         public void UndoLastTurret()
         {
+            var price = 0;
+
             if (lastObjectPlaced != null)
             {
                 objectsPlaced.Remove(objectsPlaced[objectsPlaced.Count - 1]);
 
                 if (lastObjectPlaced.name.Contains("Turret"))
                     RemoveTurretFromEnemiesList(lastObjectPlaced);
+
+                gameEconomy.RefundMoney(lastObjectPlaced.GetComponent<ObjectEconomy>().GetPrice());
 
                 Destroy(lastObjectPlaced.gameObject);
 

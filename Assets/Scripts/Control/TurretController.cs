@@ -10,8 +10,8 @@ namespace Game.Control
 {
     public class TurretController : MonoBehaviour
     {
-        private SphereCollider rangeCollider;
-         
+        [SerializeField] int price = 10;
+        
         private TurretFighter fighter;
         private TurretAim aim;
         private Health health;
@@ -24,7 +24,6 @@ namespace Game.Control
             phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
             phaseChanger.AddTurretToList(gameObject);
 
-            rangeCollider = GetComponent<SphereCollider>();
             fighter = GetComponent<TurretFighter>();
             aim = GetComponent<TurretAim>();
             health = GetComponent<Health>();
@@ -61,5 +60,7 @@ namespace Game.Control
         {
             GetComponentInChildren<TurretAim>().Aim();
         }
+
+        public int GetPrice() => price;
     }
 }

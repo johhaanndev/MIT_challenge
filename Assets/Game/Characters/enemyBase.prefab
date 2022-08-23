@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
+  healthbar: {fileID: 0}
 --- !u!114 &114647241937469190
 MonoBehaviour:
   m_ObjectHideFlags: 0

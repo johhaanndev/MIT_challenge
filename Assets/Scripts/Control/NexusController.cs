@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,24 @@ namespace Game.Control
 {
     public class NexusController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] ParticleSystem explosionParticles;
+        [SerializeField] ParticleSystem fireParticles;
 
+        private GameCore gameCore;
+        private Health health;
+
+        private void Start()
+        {
+            gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
+            health = GetComponent<Health>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void NexusDestroyed()
         {
+            //var explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity, null);
+            //var fire = Instantiate(fireParticles, transform.position, Quaternion.identity, null);
 
+            gameCore.LoseGame();
         }
     }
 }
