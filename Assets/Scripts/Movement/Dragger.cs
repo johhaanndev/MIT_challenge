@@ -55,6 +55,12 @@ namespace Game.Movement
                 enemy.GetComponent<AIController>().AddTurretToList(turret);
         }
 
+        private void RemoveTurretFromEnemiesList(GameObject turret)
+        {
+            foreach (var enemy in enemies)
+                enemy.GetComponent<AIController>().RemoveTurret(turret);
+        }
+
         private bool CanPlaceTurret(GameObject turretPlanning)
         {
             var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
@@ -78,6 +84,8 @@ namespace Game.Movement
             if (lastTurretPlaced != null)
             {
                 turretsPlaced.Remove(turretsPlaced[turretsPlaced.Count - 1]);
+                RemoveTurretFromEnemiesList(lastTurretPlaced);
+
                 Destroy(lastTurretPlaced.gameObject);
 
                 if (turretsPlaced.Count > 0)

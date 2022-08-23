@@ -119,5 +119,11 @@ namespace Game.Control
             Debug.Log("ADDED TURRET TO ENEMY LIST");
             turrets.Add(turretPlaced);
         }
+
+        public void RemoveTurret(GameObject turretPlaced)
+        {
+            Debug.Log("ADDED TURRET TO ENEMY LIST");
+            turrets.Remove(turretPlaced);
+        }
     }
 }
