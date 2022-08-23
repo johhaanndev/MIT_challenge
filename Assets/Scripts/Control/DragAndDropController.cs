@@ -31,5 +31,10 @@ namespace Game.Control
         {
             dragger.Drop(turretsPlanning[turretIndex], turretsPrefab[turretIndex]);
         }
+
+        public void UndoBehaviour()
+        {
+            dragger.UndoLastTurret();
+        }
     }
 }

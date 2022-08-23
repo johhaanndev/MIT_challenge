@@ -12,6 +12,9 @@ namespace Game.Movement
 
         [SerializeField] List<GameObject> enemies;
 
+        private GameObject lastTurretPlaced;
+        private List<GameObject> turretsPlaced = new List<GameObject>();
+
         public void Drag(GameObject turret)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -37,8 +40,13 @@ namespace Game.Movement
                 return;
 
             GameObject turretToInstantiate = Instantiate(turretPrefab, positionToInstantiate, Quaternion.identity, GameObject.Find("Turrets").transform);
-            AddTurretToEnemiesList(turretToInstantiate);
             turretToInstantiate.SetActive(true);
+            
+            AddTurretToEnemiesList(turretToInstantiate);
+            turretsPlaced.Add(turretToInstantiate);
+
+            if (turretsPlaced.Count > 0)
+                lastTurretPlaced = turretsPlaced[turretsPlaced.Count - 1];
         }
 
         private void AddTurretToEnemiesList(GameObject turret)
@@ -63,6 +71,20 @@ namespace Game.Movement
             }
 
             return true;
+        }
+
+        public void UndoLastTurret()
+        {
+            if (lastTurretPlaced != null)
+            {
+                turretsPlaced.Remove(turretsPlaced[turretsPlaced.Count - 1]);
+                Destroy(lastTurretPlaced.gameObject);
+
+                if (turretsPlaced.Count > 0)
+                    lastTurretPlaced = (turretsPlaced[turretsPlaced.Count - 1]);
+            }
+            else
+                Debug.Log("No turrets placed");
         }
     }
 
