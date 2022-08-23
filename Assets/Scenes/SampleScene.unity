@@ -1262,6 +1262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423433302}
   - component: {fileID: 423433303}
+  - component: {fileID: 423433304}
   m_Layer: 0
   m_Name: GameCore
   m_TagString: Untagged
@@ -1295,6 +1296,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a776a74828b35024aa83117bc010a4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &423433304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423433301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1524c65a8e7464f48b509ad9d8270092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 500
 --- !u!1001 &432622915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,6 +1834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390355486668705970, guid: 2660c6b40b18dfc4094f5abc7870d587,
+        type: 3}
+      propertyPath: price
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2660c6b40b18dfc4094f5abc7870d587, type: 3}
@@ -5018,6 +5037,10 @@ PrefabInstance:
       propertyPath: enemies.Array.data[26]
       value: 
       objectReference: {fileID: 1934045869}
+    - target: {fileID: 1835668421, guid: 3015753d04da45440b68a86e15ad492e, type: 3}
+      propertyPath: gameEconomy
+      value: 
+      objectReference: {fileID: 423433304}
     - target: {fileID: 715115694, guid: 3015753d04da45440b68a86e15ad492e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

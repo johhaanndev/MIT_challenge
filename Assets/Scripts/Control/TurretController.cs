@@ -10,6 +10,8 @@ namespace Game.Control
 {
     public class TurretController : MonoBehaviour
     {
+        [SerializeField] int price = 10;
+
         private TurretFighter fighter;
         private TurretAim aim;
         private Health health;
@@ -58,5 +60,7 @@ namespace Game.Control
         {
             GetComponentInChildren<TurretAim>().Aim();
         }
+
+        public int GetPrice() => price;
     }
 }

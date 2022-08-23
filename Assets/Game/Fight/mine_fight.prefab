@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114765767638707338}
   - component: {fileID: 114972621410045686}
   - component: {fileID: 1394939272651700479}
+  - component: {fileID: 114469734805122216}
   m_Layer: 0
   m_Name: mine_fight
   m_TagString: Untagged
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec427ee118284424dba08d74ced46b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 5
 --- !u!114 &114972621410045686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +146,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0.0012139995, z: -0.010956988}
+--- !u!114 &114469734805122216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254988879209421890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e58f11203a9e9349a29a73d378cd7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 5
