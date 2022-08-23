@@ -47,12 +47,12 @@ namespace Game.Fight
                     target = enemy.gameObject;
                     var direction = target.transform.position - shootingSpot.position;
 
-                    CastRayToEnemy(direction);
+                    ShootRayToEnemy(direction);
                 }
             }
         }
 
-        private void CastRayToEnemy(Vector3 dir)
+        private void ShootRayToEnemy(Vector3 dir)
         {
             RaycastHit hit;
             if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~mask))
