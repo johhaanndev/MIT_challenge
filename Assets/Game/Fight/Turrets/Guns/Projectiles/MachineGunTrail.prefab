@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 5972425469030739272, guid: bd44188351817e8408590983c30d3dac,
         type: 3}
       propertyPath: m_Name
-      value: BulletsTrail
+      value: MachineGunTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159301507344641331, guid: bd44188351817e8408590983c30d3dac,
+        type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5510801390563105024, guid: bd44188351817e8408590983c30d3dac,
         type: 3}

@@ -491,6 +491,12 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: explosionParticles
+      value: 
+      objectReference: {fileID: 19800002, guid: 3364c97de68d3a147af572d1c71c6455,
+        type: 3}
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: muzzles.Array.size

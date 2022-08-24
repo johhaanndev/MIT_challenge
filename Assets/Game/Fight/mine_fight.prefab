@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 114469734805122216}
   m_Layer: 0
   m_Name: mine_fight
-  m_TagString: Untagged
+  m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 512
+  explosionParticles: {fileID: 19800004, guid: b46890100828db6429ff69c322b45893, type: 3}
 --- !u!135 &1394939272651700479
 SphereCollider:
   m_ObjectHideFlags: 0

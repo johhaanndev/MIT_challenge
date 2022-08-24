@@ -11,16 +11,12 @@ namespace Game.Fight
         [SerializeField] float explosionRange = 2;
         [SerializeField] float mineDamage = 30;
         [SerializeField] LayerMask enemiesLayer;
+        [SerializeField] ParticleSystem explosionParticles;
 
-        public void Activation()
+        public void ExplodeMine()
         {
-            StartCoroutine(Explode());
-        }
+            var explosion = Instantiate(explosionParticles, transform.position, transform.rotation);
 
-        public IEnumerator Explode()
-        {
-            yield return new WaitForSeconds(countdown);
-            Debug.Log("BOOM");
             var enemiesInRange = Physics.OverlapSphere(transform.position, explosionRange, enemiesLayer);
 
             foreach (var enemy in enemiesInRange)

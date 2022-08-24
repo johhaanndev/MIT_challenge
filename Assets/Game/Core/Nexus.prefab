@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e114507ae751c6d4eae6211d4b7b7ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticles: {fileID: 0}
-  fireParticles: {fileID: 0}
+  fireParticles: {fileID: 19800002, guid: cfa5cd38b0eeb5d45aafdbe57871168c, type: 3}
 --- !u!114 &114421849172366786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 500
   healthbar: {fileID: 4457123267200524254}
+  healthbarScreen: {fileID: 0}
+  explosionParticles: {fileID: 19800006, guid: 7c442b9b6852b8a4f93306f3d154d471, type: 3}
 --- !u!54 &54167923821292144
 Rigidbody:
   m_ObjectHideFlags: 0

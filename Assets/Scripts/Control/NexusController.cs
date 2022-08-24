@@ -7,7 +7,6 @@ namespace Game.Control
 {
     public class NexusController : MonoBehaviour
     {
-        [SerializeField] ParticleSystem explosionParticles;
         [SerializeField] ParticleSystem fireParticles;
 
         private GameCore gameCore;
@@ -17,10 +16,10 @@ namespace Game.Control
             gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
         }
 
-        public void NexusDestroyed()
+        public void NexusDestroyed(ParticleSystem explosion)
         {
-            //var explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity, null);
-            //var fire = Instantiate(fireParticles, transform.position, Quaternion.identity, null);
+            var particles = Instantiate(explosion, transform.position, Quaternion.identity, null);
+            var fire = Instantiate(fireParticles, transform.position, Quaternion.identity, null);
 
             gameCore.LoseGame();
         }
