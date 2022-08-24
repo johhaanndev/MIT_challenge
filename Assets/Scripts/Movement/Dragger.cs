@@ -26,11 +26,8 @@ namespace Game.Movement
 
         public void Drag(GameObject turret)
         {
-            Debug.Log($"Dragging {turret.name}");
-
             if (!gameEconomy.CanBuy(turret.GetComponent<ObjectEconomy>().GetPrice()))
             {
-                Debug.Log("NOT ENOUGH MONEY");
                 return;
             }
 

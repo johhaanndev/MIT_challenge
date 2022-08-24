@@ -528,6 +528,16 @@ PrefabInstance:
       propertyPath: muzzles.Array.data[8]
       value: 
       objectReference: {fileID: 100008, guid: 882906b7ca279ee4bb3f9d4bd5073f63, type: 3}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: ignoreRayLayer.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: pivot

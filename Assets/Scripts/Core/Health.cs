@@ -30,6 +30,7 @@ namespace Game.Core
 
         public void TakeDamage(float damage)
         {
+            Debug.Log($"taking damage: {damage}");
             healthPoints = Mathf.Max(healthPoints - damage, 0);
 
             if (healthbar != null)
