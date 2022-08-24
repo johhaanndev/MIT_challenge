@@ -58,7 +58,7 @@ namespace Game.Fight
 
         }
 
-        internal void AttackAction(GameObject target)
+        public void AttackAction(GameObject target)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             turretTarget = target.GetComponent<Health>();
