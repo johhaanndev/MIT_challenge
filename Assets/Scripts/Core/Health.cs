@@ -11,6 +11,7 @@ namespace Game.Core
     {
         [SerializeField] float healthPoints = 100;
         [SerializeField] Image healthbar;
+        [SerializeField] Image healthbarScreen;
 
         private bool isDead = false;
 
@@ -40,6 +41,9 @@ namespace Game.Core
         private void FillHealthbar(float currentHealth)
         {
             healthbar.fillAmount = currentHealth / maxHealth;
+
+            if (gameObject.name.Equals("Nexus"))
+                healthbarScreen.fillAmount = currentHealth / maxHealth;
         }
 
         private void Die()

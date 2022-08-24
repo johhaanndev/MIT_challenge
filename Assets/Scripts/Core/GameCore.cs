@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Game.Core
 {
     public class GameCore : MonoBehaviour
     {
+        [SerializeField] GameObject endGameCanvas;
+        [SerializeField] Text resultText;
+
         private List<GameObject> enemies = new List<GameObject>();
 
         // Start is called before the first frame update
@@ -26,12 +31,19 @@ namespace Game.Core
 
         public void WinGame()
         {
-            Debug.Log("WIN");
+            endGameCanvas.SetActive(true);
+            resultText.text = "MISSION COMPLETE";
         }
 
         public void LoseGame()
         {
-            Debug.Log("LOSE");
+            endGameCanvas.SetActive(true);
+            resultText.text = "FAILURE";
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
