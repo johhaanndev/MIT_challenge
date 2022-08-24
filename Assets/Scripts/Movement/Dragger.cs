@@ -72,13 +72,13 @@ namespace Game.Movement
         private void AddTurretToEnemiesList(GameObject turret)
         {
             foreach (var enemy in enemies)
-                enemy.GetComponent<AIController>().AddTurretToList(turret);
+                enemy.GetComponent<EnemyController>().AddTurretToList(turret);
         }
 
         private void RemoveTurretFromEnemiesList(GameObject turret)
         {
             foreach (var enemy in enemies)
-                enemy.GetComponent<AIController>().RemoveTurret(turret);
+                enemy.GetComponent<EnemyController>().RemoveTurret(turret);
         }
 
         private bool CanPlaceTurret(GameObject objectToPlace)

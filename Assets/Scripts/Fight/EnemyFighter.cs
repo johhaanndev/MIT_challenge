@@ -99,7 +99,7 @@ namespace Game.Fight
             target.TakeDamage(weaponDamage);
             if (target.IsDead())
             {
-                GetComponent<AIController>().DeleteTurretOnDestroy(target.gameObject);
+                GetComponent<EnemyController>().DeleteTurretOnDestroy(target.gameObject);
                 Cancel();
             }
         }

@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 namespace Game.Control
 {
-    public class AIController : MonoBehaviour
+    public class EnemyController : MonoBehaviour
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;

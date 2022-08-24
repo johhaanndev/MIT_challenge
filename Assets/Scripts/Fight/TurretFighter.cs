@@ -34,6 +34,9 @@ namespace Game.Fight
         // Update is called once per frame
         void Update()
         {
+            if (GetComponent<Health>().IsDead())
+                return;
+
             timeSinceLastAttack += Time.deltaTime;
         }
 

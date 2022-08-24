@@ -12,6 +12,12 @@ namespace Game.Control
 
         private CameraMover mover;
 
+        private Touch touch0;
+        private Touch touch1;
+
+        private float hor;
+        private float ver;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -23,16 +29,16 @@ namespace Game.Control
         {
             if (Input.touchCount == 2)
             {
-                Touch touch0 = Input.GetTouch(0);
-                Touch touch1 = Input.GetTouch(1);
+                touch0 = Input.GetTouch(0);
+                touch1 = Input.GetTouch(1);
 
                 ZoomBehaviour(touch0, touch1);
 
                 return;
             }
 
-            var hor = joystick.Horizontal;
-            var ver = joystick.Vertical;
+            hor = joystick.Horizontal;
+            ver = joystick.Vertical;
 
             if (Mathf.Abs(hor) > 0.1f || Mathf.Abs(ver) > 0.1f)
             {

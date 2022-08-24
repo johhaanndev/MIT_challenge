@@ -8,7 +8,6 @@ namespace Game.Control
 {
     public class DragAndDropController : MonoBehaviour
     {
-        [SerializeField] PhaseChanger phaseChanger;
         [SerializeField] List<GameObject> turretsPrefab;
         [SerializeField] List<GameObject> turretsPlanning;
 
