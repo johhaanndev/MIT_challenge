@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: timeBetweenAttacks
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: turretDamage
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -578,6 +578,22 @@ PrefabInstance:
       propertyPath: muzzles.Array.data[8]
       value: 
       objectReference: {fileID: 100008, guid: 882906b7ca279ee4bb3f9d4bd5073f63, type: 3}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: ignoreRayLayer.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: rocketsParticles
+      value: 
+      objectReference: {fileID: 19800004, guid: b46890100828db6429ff69c322b45893,
+        type: 3}
     - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: pivot

@@ -14,8 +14,10 @@ namespace Game.Fight
         [SerializeField] Transform shootingSpot;
         [SerializeField] float timeBetweenAttacks;
         [SerializeField] float turretDamage;
-        [SerializeField] LayerMask mask;
+        [SerializeField] LayerMask ignoreRayLayer;
+        [SerializeField] LayerMask enemyLayer;
         [SerializeField] TrailRenderer bulletTrail;
+        [SerializeField] ParticleSystem rocketsParticles;
 
         [SerializeField] List<GameObject> muzzles;
 
@@ -64,7 +66,7 @@ namespace Game.Fight
             StartCoroutine(DestroyMuzzle(muzz));
 
             RaycastHit hit;
-            if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~mask))
+            if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~ignoreRayLayer))
             {
                 if (!hit.transform.name.Contains("enemy"))
                     return;
@@ -73,7 +75,8 @@ namespace Game.Fight
                 {
                     TrailRenderer hotTrail = Instantiate(bulletTrail, shootingSpot.position, Quaternion.identity);
                     StartCoroutine(SpawnTrail(hotTrail, hit));
-                    hit.transform.GetComponent<Health>().TakeDamage(turretDamage);
+
+                    
                 }
             }
         }
@@ -98,6 +101,19 @@ namespace Game.Fight
             trail.transform.position = hit.point;
 
             Destroy(trail.gameObject, trail.time);
+            if (gameObject.name.Contains("Rockets"))
+            {
+                var explosion = Instantiate(rocketsParticles, hit.point, Quaternion.identity, null);
+                var enemiesInRange = Physics.OverlapSphere(hit.point, 3, enemyLayer);
+                foreach (var enemy in enemiesInRange)
+                {
+                    enemy.GetComponent<Health>().TakeDamage(turretDamage);
+                }
+            }
+            else
+            {
+                hit.transform.GetComponent<Health>().TakeDamage(turretDamage);
+            }
         }
 
         void OnDrawGizmos()

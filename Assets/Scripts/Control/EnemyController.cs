@@ -70,7 +70,6 @@ namespace Game.Control
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
         {
-            Debug.Log($"turrets: {turrets.Count}");
             turrets.RemoveAll(x => x.GetComponent<Health>().IsDead());
 
             if (turrets.Count == 0)
@@ -116,13 +115,11 @@ namespace Game.Control
 
         public void AddTurretToList(GameObject turretPlaced)
         {
-            Debug.Log("ADDED TURRET TO ENEMY LIST");
             turrets.Add(turretPlaced);
         }
 
         public void RemoveTurret(GameObject turretPlaced)
         {
-            Debug.Log("ADDED TURRET TO ENEMY LIST");
             turrets.Remove(turretPlaced);
         }
     }
