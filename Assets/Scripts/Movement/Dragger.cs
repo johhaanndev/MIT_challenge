@@ -90,7 +90,7 @@ namespace Game.Movement
             var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
             foreach (var collider in colliders)
             {
-                if (collider.CompareTag("Player"))
+                if (collider.CompareTag("Player") || collider.CompareTag("Environment"))
                 {
                     var distance = Vector3.Distance(collider.transform.position, objectToPlace.transform.position);
                     if (distance <= 2.5f)

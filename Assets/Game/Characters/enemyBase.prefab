@@ -2703,7 +2703,7 @@ CapsuleCollider:
   m_Radius: 0.24986428
   m_Height: 1.8477986
   m_Direction: 1
-  m_Center: {x: 0, y: -0.06180978, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!114 &114048988054347786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,7 +2730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341771fe7b764864db19f92024823d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 50000
+  healthPoints: 200
   healthbar: {fileID: 0}
   healthbarScreen: {fileID: 0}
   explosionParticles: {fileID: 0}
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 15
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0.5
   weaponDamage: 2
   firingSpot: {fileID: 6690662130401908646}
   enemyMask:
@@ -2797,6 +2797,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.86
-  m_BaseOffset: 1
+  m_BaseOffset: 0.88
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
