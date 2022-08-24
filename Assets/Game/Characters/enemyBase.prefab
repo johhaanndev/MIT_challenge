@@ -230,13 +230,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6690662130401908646}
-  m_LocalRotation: {x: -0.048976947, y: -0.99402595, z: -0.00091066933, w: 0.0975341}
-  m_LocalPosition: {x: 0.05912791, y: 0.11403393, z: -0.7098082}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.008, y: 0.122, z: -1.558}
   m_LocalScale: {x: 1.716797, y: 1.7151151, z: 1.7581785}
   m_Children: []
   m_Father: {fileID: 1252124985601495742}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &6855795211394415233
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +899,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
+  muzzle: {fileID: 100008, guid: 5e4b26c055ae2554cbd792be1c7fa901, type: 3}
 --- !u!195 &6628712722379789569
 NavMeshAgent:
   m_ObjectHideFlags: 0

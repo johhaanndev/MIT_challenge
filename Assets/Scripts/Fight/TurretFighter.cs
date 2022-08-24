@@ -17,6 +17,8 @@ namespace Game.Fight
         [SerializeField] LayerMask mask;
         [SerializeField] TrailRenderer bulletTrail;
 
+        [SerializeField] List<GameObject> muzzles;
+
         private TurretAim aim;
 
         private GameObject target;
@@ -54,6 +56,10 @@ namespace Game.Fight
 
         private void ShootRayToEnemy(Vector3 dir)
         {
+            var index = UnityEngine.Random.Range(0, muzzles.Count - 1);
+            var muzz = Instantiate(muzzles[index], shootingSpot.transform.position, shootingSpot.transform.rotation, shootingSpot.transform);
+            StartCoroutine(DestroyMuzzle(muzz));
+
             RaycastHit hit;
             if (Physics.Raycast(shootingSpot.position, dir, out hit, float.MaxValue, ~mask))
             {
@@ -67,6 +73,12 @@ namespace Game.Fight
                     hit.transform.GetComponent<Health>().TakeDamage(turretDamage);
                 }
             }
+        }
+
+        private IEnumerator DestroyMuzzle(GameObject muzzle)
+        {
+            yield return new WaitForSeconds(0.05f);
+            Destroy(muzzle);
         }
 
         private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)

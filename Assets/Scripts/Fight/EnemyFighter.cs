@@ -15,6 +15,7 @@ namespace Game.Fight
         [SerializeField] float weaponDamage = 5.0f;
         [SerializeField] GameObject firingSpot;
         [SerializeField] LayerMask enemyMask;
+        [SerializeField] GameObject muzzle;
 
         private Health turretTarget;
         private float timeSinceLastAttack = Mathf.Infinity;
@@ -67,6 +68,10 @@ namespace Game.Fight
         private void Shoot(Vector3 from, Vector3 targetPosition)
         {
             float maxRange = weaponRange + 2; // + 2 just to be sure
+
+            var muzz = Instantiate(muzzle, firingSpot.transform.position, firingSpot.transform.rotation, firingSpot.transform);
+            StartCoroutine(DestroyMuzzle(muzz));
+
             RaycastHit hit;
             if (Vector3.Distance(from, targetPosition) < maxRange)
             {
@@ -86,9 +91,6 @@ namespace Game.Fight
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        /// <summary>
-        /// Animation Even when attacking
-        /// </summary>
         private void Hit(Health target)
         {
             if (target == null)
@@ -134,6 +136,12 @@ namespace Game.Fight
             Gizmos.color = Color.red;
             Vector3 direction = turretTarget.transform.position - firingSpot.transform.position;
             Gizmos.DrawRay(firingSpot.transform.position, direction);
+        }
+
+        private IEnumerator DestroyMuzzle(GameObject muzzle)
+        {
+            yield return new WaitForSeconds(0.05f);
+            Destroy(muzzle);
         }
     }
 }
