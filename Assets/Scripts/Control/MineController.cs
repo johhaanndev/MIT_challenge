@@ -15,17 +15,10 @@ namespace Game.Control
         {
             fighter = GetComponent<MineFighter>();
         }
-        private void ActivateMine()
-        {
-            fighter.Activation();
-        }
 
-        public void OnTriggerEnter(Collider other)
+        public void ActivateMine()
         {
-            if (other.CompareTag("Enemy"))
-            {
-                ActivateMine();
-            }
+            fighter.ExplodeMine();
         }
     }
 }

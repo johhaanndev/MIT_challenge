@@ -1,0 +1,277 @@
+fileFormatVersion: 2
+guid: 544c96a9f753eb348915697c8636f7aa
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: toon_muzzleflash_front_spritesheet_3_0
+    21300002: toon_muzzleflash_front_spritesheet_3_1
+    21300004: toon_muzzleflash_front_spritesheet_3_2
+    21300006: toon_muzzleflash_front_spritesheet_3_3
+    21300008: toon_muzzleflash_front_spritesheet_3_4
+    21300010: toon_muzzleflash_front_spritesheet_3_5
+    21300012: toon_muzzleflash_front_spritesheet_3_6
+    21300014: toon_muzzleflash_front_spritesheet_3_7
+    21300016: toon_muzzleflash_front_spritesheet_3_8
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 16
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2731
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a3fe02a39d47346b0a3ab2af72c7b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_1
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 2731
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1502e4eb6e893e147bd30772f366158a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_2
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 2731
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75429370d7a71d0498430048c9d9b10d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1366
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b75fed508c040e46b4dcfe0c79b5063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_4
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1366
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f2f92c6319aa44c9ac1d5968b3e95e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_5
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 1366
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15de35a5eae4d14f9623fa01a3e6506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85dd91194ceeebd4d8f5f7eccb0e6687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_7
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6064cc57579c35a42b633a97eaa22aeb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toon_muzzleflash_front_spritesheet_3_8
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 1
+        width: 1365
+        height: 1365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bc3468a60fef54ca43586060cfe262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,6 +3,7 @@ using Game.Core;
 using Game.Economy;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Movement
@@ -13,10 +14,15 @@ namespace Game.Movement
         private Vector3 positionToInstantiate;
 
         [SerializeField] GameEconomy gameEconomy;
-        [SerializeField] List<GameObject> enemies;
+        private List<GameObject> enemies = new List<GameObject>();
 
         private GameObject lastObjectPlaced;
         private List<GameObject> objectsPlaced = new List<GameObject>();
+
+        void Start()
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+        }
 
         public void Drag(GameObject turret)
         {

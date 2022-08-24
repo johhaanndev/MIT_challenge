@@ -12,6 +12,7 @@ namespace Game.Core
         [SerializeField] float healthPoints = 100;
         [SerializeField] Image healthbar;
         [SerializeField] Image healthbarScreen;
+        [SerializeField] ParticleSystem explosionParticles;
 
         private bool isDead = false;
 
@@ -55,12 +56,14 @@ namespace Game.Core
 
             if (gameObject.name.Contains("Nexus"))
             {
-                gameObject.GetComponent<NexusController>().NexusDestroyed();
+                gameObject.GetComponent<NexusController>().NexusDestroyed(explosionParticles);
                 return;
             }
 
             if (gameObject.name.Contains("Turret"))
             {
+                var explosion = Instantiate(explosionParticles, transform.position, transform.rotation, null);
+                gameObject.SetActive(false);
                 return;
             }
 
