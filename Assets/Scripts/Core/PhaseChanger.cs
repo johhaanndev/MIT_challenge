@@ -12,7 +12,8 @@ namespace Game.Core
         [SerializeField] GameObject planningButtons;
         [SerializeField] List<GameObject> allTurrets = new List<GameObject>();
         [SerializeField] List<GameObject> allEnemies = new List<GameObject>();
-        
+
+        [SerializeField] GameObject fightCanvas;
 
         private enum Phase
         {
@@ -33,6 +34,7 @@ namespace Game.Core
         {
             phase = Phase.fight;
             planningButtons.SetActive(false);
+            fightCanvas.SetActive(true);
         }
 
         public void FinishGame()

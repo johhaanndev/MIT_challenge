@@ -11,12 +11,10 @@ namespace Game.Control
         [SerializeField] ParticleSystem fireParticles;
 
         private GameCore gameCore;
-        private Health health;
 
         private void Start()
         {
             gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
-            health = GetComponent<Health>();
         }
 
         public void NexusDestroyed()
