@@ -123,11 +123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114116577489198252, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: price
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1969047147389451202, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Name
@@ -228,6 +223,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418147274096814978, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3277309205632862313, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: m_Layer
@@ -253,36 +253,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+    - target: {fileID: 114116577489198252, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
-      propertyPath: timeBetweenAttacks
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: ShootForce
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: shootingSpot
-      value: 
-      objectReference: {fileID: 5651382767087659831}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: turretDamage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: bulletTrail
-      value: 
-      objectReference: {fileID: 4740094767596974169, guid: f28aed23de088b242a2edd287eb6f20c,
-        type: 3}
-    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: healthPoints
-      value: 70
+      propertyPath: price
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1523012333420544937, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -308,16 +282,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: pivot
-      value: 
-      objectReference: {fileID: 6224960861602919108}
-    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
-        type: 3}
-      propertyPath: minDistance
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3277309205632931603, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -434,10 +398,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2418147274096814978, guid: 15ba78497a19fbd469b922982e7447f1,
+    - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: healthPoints
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: ShootForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: shootingSpot
+      value: 
+      objectReference: {fileID: 5651382767087659831}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: turretDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: bulletTrail
+      value: 
+      objectReference: {fileID: 4740094767596974169, guid: f28aed23de088b242a2edd287eb6f20c,
+        type: 3}
+    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 6224960861602919108}
+    - target: {fileID: 6789111407119962873, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: minDistance
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2441685949419541732, guid: 15ba78497a19fbd469b922982e7447f1, type: 3}

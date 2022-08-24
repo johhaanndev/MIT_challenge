@@ -344,7 +344,7 @@ PrefabInstance:
     - target: {fileID: 114116577489198252, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: price
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1523012333420544937, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
@@ -486,6 +486,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2441685949419541732, guid: 15ba78497a19fbd469b922982e7447f1,
+        type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 114717333665041956, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: healthPoints
@@ -520,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
       propertyPath: turretDamage
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114814852406481016, guid: 15ba78497a19fbd469b922982e7447f1,
         type: 3}
