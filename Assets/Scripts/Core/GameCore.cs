@@ -32,13 +32,13 @@ namespace Game.Core
         public void WinGame()
         {
             endGameCanvas.SetActive(true);
-            resultText.text = "YOU WIN";
+            resultText.text = "MISSION COMPLETE";
         }
 
         public void LoseGame()
         {
             endGameCanvas.SetActive(true);
-            resultText.text = "YOU WIN";
+            resultText.text = "FAILURE";
         }
 
         public void RestartGame()
