@@ -13,6 +13,11 @@ namespace Game.Movement
         // Start is called before the first frame update
         void Start()
         {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
             agent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
         }
