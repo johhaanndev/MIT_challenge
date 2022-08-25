@@ -14,6 +14,7 @@ namespace Game.Fight
         [Header("Attack parameters")]
         [SerializeField] float turretDamage;
         [SerializeField] float timeBetweenAttacks;
+        [SerializeField] float rocketsImpactRange = 2;
 
         [Header("Transform references")]
         [SerializeField] Transform shootingSpot;
@@ -81,8 +82,6 @@ namespace Game.Fight
                 {
                     TrailRenderer hotTrail = Instantiate(bulletTrail, shootingSpot.position, Quaternion.identity);
                     StartCoroutine(SpawnTrail(hotTrail, hit));
-
-                    
                 }
             }
         }
@@ -110,7 +109,7 @@ namespace Game.Fight
             if (gameObject.name.Contains("Rockets"))
             {
                 var explosion = Instantiate(rocketsParticles, hit.point, Quaternion.identity, null);
-                var enemiesInRange = Physics.OverlapSphere(hit.point, 3, enemyLayer);
+                var enemiesInRange = Physics.OverlapSphere(hit.point, rocketsImpactRange, enemyLayer);
                 foreach (var enemy in enemiesInRange)
                 {
                     enemy.GetComponent<Health>().TakeDamage(turretDamage);
