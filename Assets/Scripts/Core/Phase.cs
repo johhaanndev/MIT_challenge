@@ -2,8 +2,8 @@
 {
     public enum Phase
     {
-        planning,
-        fight,
-        end
+        Planning,
+        Fight,
+        End
     }
 }

@@ -9,9 +9,11 @@ namespace Game.Core
 {
     public partial class PhaseChanger : MonoBehaviour
     {
-        [SerializeField] GameObject planningButtons;
+        [Header("Objects reference")]
         [SerializeField] List<GameObject> allTurrets = new List<GameObject>();
 
+        [Header("UI")]
+        [SerializeField] GameObject planningButtons;
         [SerializeField] GameObject fightCanvas;
 
         private Phase phase;
@@ -19,23 +21,23 @@ namespace Game.Core
         // Start is called before the first frame update
         void Start()
         {
-            phase = Phase.planning;
+            phase = Phase.Planning;
         }
 
         public void StartFight()
         {
-            phase = Phase.fight;
+            phase = Phase.Fight;
             planningButtons.SetActive(false);
             fightCanvas.SetActive(true);
         }
 
         public void FinishGame()
         {
-            phase = Phase.end;
+            phase = Phase.End;
         }
 
         public void AddTurretToList(GameObject turret) => allTurrets.Add(turret);
 
-        public bool GetIsFight() => phase == Phase.fight;
+        public bool GetIsFight() => phase == Phase.Fight;
     }
 }
