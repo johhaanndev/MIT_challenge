@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IHealth
     {
         [SerializeField] float healthPoints = 100;
         [SerializeField] Image healthbar;
@@ -26,7 +26,11 @@ namespace Game.Core
             maxHealth = healthPoints;
         }
 
-        public bool IsDead() => isDead;
+        public void Initialize()
+        {
+            gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
+            maxHealth = healthPoints;
+        }
 
         public void TakeDamage(float damage)
         {
@@ -40,15 +44,7 @@ namespace Game.Core
                 Die();
         }
 
-        private void FillHealthbar(float currentHealth)
-        {
-            healthbar.fillAmount = currentHealth / maxHealth;
-
-            if (gameObject.name.Equals("Nexus"))
-                healthbarScreen.fillAmount = currentHealth / maxHealth;
-        }
-
-        private void Die()
+        public void Die()
         {
             if (isDead)
                 return;
@@ -70,7 +66,6 @@ namespace Game.Core
 
             if (gameObject.GetComponent<Animator>() != null)
             {
-                Debug.Log("Enemy killed");
                 gameCore.RemoveDeadEnemy(gameObject);
 
                 GetComponent<Animator>().SetTrigger("die");
@@ -79,6 +74,16 @@ namespace Game.Core
                 GetComponent<Rigidbody>().useGravity = false;
                 GetComponent<CapsuleCollider>().enabled = false;
             }
+        }
+
+        public bool IsDead() => isDead;
+
+        private void FillHealthbar(float currentHealth)
+        {
+            healthbar.fillAmount = currentHealth / maxHealth;
+
+            if (gameObject.name.Equals("Nexus"))
+                healthbarScreen.fillAmount = currentHealth / maxHealth;
         }
     }
 }

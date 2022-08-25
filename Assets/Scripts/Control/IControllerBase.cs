@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Control
+﻿namespace Game.Control
 {
     public interface IControllerBase
     {
+        /// <summary>
+        /// Initialize all components and references
+        /// </summary>
         void InitializeReferences();
     }
 }
