@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2d1b13cc71155554eaae7b0dbbb2b81b,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -2203,6 +2204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endGameCanvas: {fileID: 596103954}
+  phaseChanger: {fileID: 0}
   resultText: {fileID: 1791783572}
 --- !u!114 &423433304
 MonoBehaviour:
@@ -8416,9 +8418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1c3f7332624014ca16fc7bbea3389b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planningButtons: {fileID: 1417196413}
   allTurrets: []
-  allEnemies: []
+  planningButtons: {fileID: 1417196413}
   fightCanvas: {fileID: 2305229316074946530}
 --- !u!4 &1905008568
 Transform:
