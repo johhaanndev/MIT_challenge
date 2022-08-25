@@ -25,7 +25,7 @@ namespace Game.Control
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (Input.touchCount == 2)
             {
