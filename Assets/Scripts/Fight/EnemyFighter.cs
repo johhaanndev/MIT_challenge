@@ -10,11 +10,18 @@ namespace Game.Fight
 {
     public class EnemyFighter : MonoBehaviour, IAction
     {
+        [Header("Attack parameters")]
+        [SerializeField] float weaponDamage = 5.0f;
         [SerializeField] float weaponRange = 2.0f;
         [SerializeField] float timeBetweenAttacks = 1.0f;
-        [SerializeField] float weaponDamage = 5.0f;
+
+        [Header("Transform references")]
         [SerializeField] GameObject firingSpot;
+
+        [Header("Layer masks")]
         [SerializeField] LayerMask enemyMask;
+
+        [Header("Visual effects")]
         [SerializeField] GameObject muzzle;
 
         private Health turretTarget;
