@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
-    public class PhaseChanger : MonoBehaviour
+    public partial class PhaseChanger : MonoBehaviour
     {
         [SerializeField] GameObject planningButtons;
         [SerializeField] List<GameObject> allTurrets = new List<GameObject>();
@@ -15,18 +15,12 @@ namespace Game.Core
 
         [SerializeField] GameObject fightCanvas;
 
-        private enum Phase
-        {
-            planning,
-            fight,
-            end
-        }
-
         private Phase phase;
 
         // Start is called before the first frame update
         void Start()
         {
+            phase = Phase.planning;
             allEnemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         }
 
@@ -39,7 +33,7 @@ namespace Game.Core
 
         public void FinishGame()
         {
-
+            phase = Phase.end;
         }
 
         public void AddTurretToList(GameObject turret) => allTurrets.Add(turret);

@@ -7,17 +7,24 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
-    public class GameCore : MonoBehaviour
+    public class GameCore : MonoBehaviour, IGameCore
     {
         [SerializeField] GameObject endGameCanvas;
         [SerializeField] Text resultText;
+        [SerializeField] PhaseChanger phaseChanger;
 
         private List<GameObject> enemies = new List<GameObject>();
 
         // Start is called before the first frame update
         void Start()
         {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
             enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
         }
 
         public void RemoveDeadEnemy(GameObject enemy)
@@ -33,12 +40,14 @@ namespace Game.Core
         {
             endGameCanvas.SetActive(true);
             resultText.text = "MISSION COMPLETE";
+            phaseChanger.FinishGame();
         }
 
         public void LoseGame()
         {
             endGameCanvas.SetActive(true);
             resultText.text = "FAILURE";
+            phaseChanger.FinishGame();
         }
 
         public void RestartGame()

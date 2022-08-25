@@ -22,8 +22,7 @@ namespace Game.Core
 
         private void Start()
         {
-            gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
-            maxHealth = healthPoints;
+            Initialize();
         }
 
         public void Initialize()
@@ -34,7 +33,6 @@ namespace Game.Core
 
         public void TakeDamage(float damage)
         {
-            Debug.Log($"taking damage: {damage}");
             healthPoints = Mathf.Max(healthPoints - damage, 0);
 
             if (healthbar != null)

@@ -15,7 +15,10 @@
 
         /// <summary>
         /// Method activated when object has 0 health
-        /// Checks what kind of object and runs its respective actions
+        /// Three layers to check:
+        ///     - Nexus
+        ///     - Turret
+        ///     - Enemy
         /// </summary>
         void Die();
     }
