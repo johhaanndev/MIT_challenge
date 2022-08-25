@@ -9,9 +9,12 @@ namespace Game.Core
 {
     public class GameCore : MonoBehaviour, IGameCore
     {
+        [Header("Canvas references")]
         [SerializeField] GameObject endGameCanvas;
-        [SerializeField] Text resultText;
         [SerializeField] PhaseChanger phaseChanger;
+
+        [Header("Texts")]
+        [SerializeField] Text resultText;
 
         private List<GameObject> enemies = new List<GameObject>();
 

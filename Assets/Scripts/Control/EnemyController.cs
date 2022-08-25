@@ -13,12 +13,12 @@ namespace Game.Control
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;
-        
-        private PhaseChanger phaseChanger;
 
         private EnemyMover mover;
         private Health health;
         private EnemyFighter fighter;
+        
+        private PhaseChanger phaseChanger;
 
         private List<GameObject> turrets = new List<GameObject>();
         private GameObject target;
