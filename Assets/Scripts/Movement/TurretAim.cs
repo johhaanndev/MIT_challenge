@@ -66,7 +66,7 @@ namespace Game.Movement
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag(GameTags.ENEMY))
             {
                 enemies.Add(other.gameObject);
             }
@@ -74,7 +74,7 @@ namespace Game.Movement
 
         void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag(GameTags.ENEMY))
             {
                 enemies.Remove(other.gameObject);
             }
