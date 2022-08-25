@@ -57,7 +57,7 @@ namespace Game.Control
             mover = GetComponent<EnemyMover>();
             health = GetComponent<Health>();
             fighter = GetComponent<EnemyFighter>();
-            turrets = GameObject.FindGameObjectsWithTag("Player").ToList();
+            turrets = GameObject.FindGameObjectsWithTag(GameTags.PLAYER).ToList();
 
             Physics.IgnoreLayerCollision(layerIndexToIgnore, layerIndexToIgnore);
         }

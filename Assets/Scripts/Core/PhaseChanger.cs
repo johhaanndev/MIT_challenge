@@ -11,7 +11,6 @@ namespace Game.Core
     {
         [SerializeField] GameObject planningButtons;
         [SerializeField] List<GameObject> allTurrets = new List<GameObject>();
-        [SerializeField] List<GameObject> allEnemies = new List<GameObject>();
 
         [SerializeField] GameObject fightCanvas;
 
@@ -21,7 +20,6 @@ namespace Game.Core
         void Start()
         {
             phase = Phase.planning;
-            allEnemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         }
 
         public void StartFight()

@@ -23,7 +23,7 @@ namespace Game.Core
 
         public void Initialize()
         {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+            enemies = GameObject.FindGameObjectsWithTag(GameTags.ENEMY).ToList();
             phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
         }
 

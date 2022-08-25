@@ -77,7 +77,7 @@ namespace Game.Fight
             {
                 if (Physics.Raycast(from, (targetPosition - from), out hit, maxRange, ~enemyMask))
                 {
-                    if (hit.transform.CompareTag("Player"))
+                    if (hit.transform.CompareTag(GameTags.PLAYER))
                     {
                         Hit(hit.transform.GetComponent<Health>());
                     }
