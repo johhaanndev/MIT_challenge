@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class DragAndDropController : MonoBehaviour
+    public class DragAndDropController : MonoBehaviour, IControllerBase
     {
         [SerializeField] List<GameObject> turretsPrefab;
         [SerializeField] List<GameObject> turretsPlanning;
@@ -17,7 +17,7 @@ namespace Game.Control
         // Start is called before the first frame update
         void Start()
         {
-            dragger = GetComponent<Dragger>();
+            InitializeReferences();   
         }
 
         public void DragBehaviour(int index)
@@ -34,6 +34,11 @@ namespace Game.Control
         public void UndoBehaviour()
         {
             dragger.UndoLastTurret();
+        }
+
+        public void InitializeReferences()
+        {
+            dragger = GetComponent<Dragger>();
         }
     }
 }
