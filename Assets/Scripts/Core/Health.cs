@@ -9,9 +9,14 @@ namespace Game.Core
 {
     public class Health : MonoBehaviour, IHealth
     {
+        [Header("Parameters")]
         [SerializeField] float healthPoints = 100;
+
+        [Header("UI")]
         [SerializeField] Image healthbar;
         [SerializeField] Image healthbarScreen;
+
+        [Header("Visual effects")]
         [SerializeField] ParticleSystem explosionParticles;
 
         private bool isDead = false;
