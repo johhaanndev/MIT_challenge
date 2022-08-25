@@ -11,13 +11,13 @@ namespace Game.Movement
 
     public class Dragger : MonoBehaviour
     {
-        private Vector3 positionToInstantiate;
-
         [SerializeField] GameEconomy gameEconomy;
-        private List<GameObject> enemies = new List<GameObject>();
 
-        private GameObject lastObjectPlaced;
+        private List<GameObject> enemies = new List<GameObject>();
         private List<GameObject> objectsPlaced = new List<GameObject>();
+        private GameObject lastObjectPlaced;
+
+        private Vector3 positionToInstantiate;
 
         void Start()
         {

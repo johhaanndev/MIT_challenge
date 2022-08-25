@@ -7,10 +7,14 @@ namespace Game.Fight
 {
     public class MineFighter : MonoBehaviour
     {
-        [SerializeField] float countdown = 0;
-        [SerializeField] float explosionRange = 2;
+        [Header("Parameters")]
         [SerializeField] float mineDamage = 30;
+        [SerializeField] float explosionRange = 2;
+
+        [Header("UI")]
         [SerializeField] LayerMask enemiesLayer;
+        
+        [Header("Visual effects")]
         [SerializeField] ParticleSystem explosionParticles;
 
         public void ExplodeMine()
