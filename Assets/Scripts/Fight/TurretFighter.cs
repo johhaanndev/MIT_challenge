@@ -11,14 +11,20 @@ namespace Game.Fight
 
     public class TurretFighter : MonoBehaviour
     {
-        [SerializeField] Transform shootingSpot;
-        [SerializeField] float timeBetweenAttacks;
+        [Header("Attack parameters")]
         [SerializeField] float turretDamage;
+        [SerializeField] float timeBetweenAttacks;
+
+        [Header("Transform references")]
+        [SerializeField] Transform shootingSpot;
+
+        [Header("Layer masks")]
         [SerializeField] LayerMask ignoreRayLayer;
         [SerializeField] LayerMask enemyLayer;
+
+        [Header("Visual effects")]
         [SerializeField] TrailRenderer bulletTrail;
         [SerializeField] ParticleSystem rocketsParticles;
-
         [SerializeField] List<GameObject> muzzles;
 
         private TurretAim aim;
