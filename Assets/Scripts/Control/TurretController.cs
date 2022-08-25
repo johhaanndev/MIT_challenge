@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class TurretController : MonoBehaviour
+    public class TurretController : MonoBehaviour, IControllerBase
     {
         private TurretFighter fighter;
         private TurretAim aim;
@@ -18,6 +18,11 @@ namespace Game.Control
 
         // Start is called before the first frame update
         void Start()
+        {
+            InitializeReferences();
+        }
+
+        public void InitializeReferences()
         {
             phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
             phaseChanger.AddTurretToList(gameObject);
@@ -58,5 +63,7 @@ namespace Game.Control
         {
             GetComponentInChildren<TurretAim>().Aim();
         }
+
+        
     }
 }

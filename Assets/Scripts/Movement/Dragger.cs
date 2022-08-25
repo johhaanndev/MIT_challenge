@@ -11,17 +11,17 @@ namespace Game.Movement
 
     public class Dragger : MonoBehaviour
     {
-        private Vector3 positionToInstantiate;
-
         [SerializeField] GameEconomy gameEconomy;
-        private List<GameObject> enemies = new List<GameObject>();
 
-        private GameObject lastObjectPlaced;
+        private List<GameObject> enemies = new List<GameObject>();
         private List<GameObject> objectsPlaced = new List<GameObject>();
+        private GameObject lastObjectPlaced;
+
+        private Vector3 positionToInstantiate;
 
         void Start()
         {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+            enemies = GameObject.FindGameObjectsWithTag(GameTags.ENEMY).ToList();
         }
 
         public void Drag(GameObject turret)
@@ -87,7 +87,7 @@ namespace Game.Movement
             var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
             foreach (var collider in colliders)
             {
-                if (collider.CompareTag("Player") || collider.CompareTag("Environment"))
+                if (collider.CompareTag(GameTags.PLAYER) || collider.CompareTag(GameTags.ENVIRONMENT))
                 {
                     var distance = Vector3.Distance(collider.transform.position, objectToPlace.transform.position);
                     if (distance <= 2.5f)

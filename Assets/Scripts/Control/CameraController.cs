@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game.Control
 {
 
-    public class CameraController : MonoBehaviour
+    public class CameraController : MonoBehaviour, IControllerBase
     {
         [SerializeField] Joystick joystick;
 
@@ -21,11 +21,16 @@ namespace Game.Control
         // Start is called before the first frame update
         void Start()
         {
+            InitializeReferences();
+        }
+
+        public void InitializeReferences()
+        {
             mover = GetComponent<CameraMover>();
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (Input.touchCount == 2)
             {
@@ -55,6 +60,8 @@ namespace Game.Control
         {
             mover.Zoom(touch0, touch1);
         }
+
+        
     }
 
 }

@@ -7,11 +7,16 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IHealth
     {
+        [Header("Parameters")]
         [SerializeField] float healthPoints = 100;
+
+        [Header("UI")]
         [SerializeField] Image healthbar;
         [SerializeField] Image healthbarScreen;
+
+        [Header("Visual effects")]
         [SerializeField] ParticleSystem explosionParticles;
 
         private bool isDead = false;
@@ -22,15 +27,17 @@ namespace Game.Core
 
         private void Start()
         {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
             gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
             maxHealth = healthPoints;
         }
 
-        public bool IsDead() => isDead;
-
         public void TakeDamage(float damage)
         {
-            Debug.Log($"taking damage: {damage}");
             healthPoints = Mathf.Max(healthPoints - damage, 0);
 
             if (healthbar != null)
@@ -40,15 +47,7 @@ namespace Game.Core
                 Die();
         }
 
-        private void FillHealthbar(float currentHealth)
-        {
-            healthbar.fillAmount = currentHealth / maxHealth;
-
-            if (gameObject.name.Equals("Nexus"))
-                healthbarScreen.fillAmount = currentHealth / maxHealth;
-        }
-
-        private void Die()
+        public void Die()
         {
             if (isDead)
                 return;
@@ -70,7 +69,6 @@ namespace Game.Core
 
             if (gameObject.GetComponent<Animator>() != null)
             {
-                Debug.Log("Enemy killed");
                 gameCore.RemoveDeadEnemy(gameObject);
 
                 GetComponent<Animator>().SetTrigger("die");
@@ -79,6 +77,16 @@ namespace Game.Core
                 GetComponent<Rigidbody>().useGravity = false;
                 GetComponent<CapsuleCollider>().enabled = false;
             }
+        }
+
+        public bool IsDead() => isDead;
+
+        private void FillHealthbar(float currentHealth)
+        {
+            healthbar.fillAmount = currentHealth / maxHealth;
+
+            if (gameObject.name.Equals("Nexus"))
+                healthbarScreen.fillAmount = currentHealth / maxHealth;
         }
     }
 }

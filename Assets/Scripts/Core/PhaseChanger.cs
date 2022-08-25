@@ -7,43 +7,37 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
-    public class PhaseChanger : MonoBehaviour
+    public partial class PhaseChanger : MonoBehaviour
     {
-        [SerializeField] GameObject planningButtons;
+        [Header("Objects reference")]
         [SerializeField] List<GameObject> allTurrets = new List<GameObject>();
-        [SerializeField] List<GameObject> allEnemies = new List<GameObject>();
 
+        [Header("UI")]
+        [SerializeField] GameObject planningButtons;
         [SerializeField] GameObject fightCanvas;
-
-        private enum Phase
-        {
-            planning,
-            fight,
-            end
-        }
 
         private Phase phase;
 
         // Start is called before the first frame update
         void Start()
         {
-            allEnemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+            phase = Phase.Planning;
         }
 
         public void StartFight()
         {
-            phase = Phase.fight;
+            phase = Phase.Fight;
             planningButtons.SetActive(false);
             fightCanvas.SetActive(true);
         }
 
         public void FinishGame()
         {
-
+            phase = Phase.End;
         }
 
         public void AddTurretToList(GameObject turret) => allTurrets.Add(turret);
 
-        public bool GetIsFight() => phase == Phase.fight;
+        public bool GetIsFight() => phase == Phase.Fight;
     }
 }

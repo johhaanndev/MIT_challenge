@@ -5,11 +5,16 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class MineController : MonoBehaviour
+    public class MineController : MonoBehaviour, IControllerBase
     {
         private MineFighter fighter;
 
         private void Start()
+        {
+            InitializeReferences();
+        }
+
+        public void InitializeReferences()
         {
             fighter = GetComponent<MineFighter>();
         }

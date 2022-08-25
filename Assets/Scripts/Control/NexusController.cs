@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class NexusController : MonoBehaviour
+    public class NexusController : MonoBehaviour, IControllerBase
     {
         [SerializeField] ParticleSystem fireParticles;
 
@@ -13,7 +13,7 @@ namespace Game.Control
 
         private void Start()
         {
-            gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
+            InitializeReferences();
         }
 
         public void NexusDestroyed(ParticleSystem explosion)
@@ -22,6 +22,11 @@ namespace Game.Control
             var fire = Instantiate(fireParticles, transform.position, Quaternion.identity, null);
 
             gameCore.LoseGame();
+        }
+
+        public void InitializeReferences()
+        {
+            gameCore = GameObject.Find("GameCore").GetComponent<GameCore>();
         }
     }
 }

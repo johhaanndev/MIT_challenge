@@ -9,16 +9,16 @@ using UnityEngine.AI;
 
 namespace Game.Control
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : MonoBehaviour, IControllerBase
     {
         [SerializeField] float attackRange;
         [SerializeField] int layerIndexToIgnore;
-        
-        private PhaseChanger phaseChanger;
 
         private EnemyMover mover;
         private Health health;
         private EnemyFighter fighter;
+        
+        private PhaseChanger phaseChanger;
 
         private List<GameObject> turrets = new List<GameObject>();
         private GameObject target;
@@ -26,14 +26,7 @@ namespace Game.Control
         // Start is called before the first frame update
         void Start()
         {
-            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
-
-            mover = GetComponent<EnemyMover>();
-            health = GetComponent<Health>();
-            fighter = GetComponent<EnemyFighter>();
-            turrets = GameObject.FindGameObjectsWithTag("Player").ToList();
-
-            Physics.IgnoreLayerCollision(layerIndexToIgnore, layerIndexToIgnore);
+            InitializeReferences();
         }
 
         // Update is called once per frame
@@ -57,6 +50,18 @@ namespace Game.Control
             AttackBehaviour();
         }
 
+        public void InitializeReferences()
+        {
+            phaseChanger = GameObject.Find("PhaseChanger").GetComponent<PhaseChanger>();
+
+            mover = GetComponent<EnemyMover>();
+            health = GetComponent<Health>();
+            fighter = GetComponent<EnemyFighter>();
+            turrets = GameObject.FindGameObjectsWithTag(GameTags.PLAYER).ToList();
+
+            Physics.IgnoreLayerCollision(layerIndexToIgnore, layerIndexToIgnore);
+        }
+
         private void AttackBehaviour()
         {
             fighter.AttackAction(target);
@@ -66,6 +71,21 @@ namespace Game.Control
         {
             if (target != null)
                 mover.StartMoveAction(target.transform.position);
+        }
+
+        public void DeleteTurretOnDestroy(GameObject turret)
+        {
+            turrets.Remove(turret);
+        }
+
+        public void AddTurretToList(GameObject turretPlaced)
+        {
+            turrets.Add(turretPlaced);
+        }
+
+        public void RemoveTurret(GameObject turretPlaced)
+        {
+            turrets.Remove(turretPlaced);
         }
 
         private GameObject GetClosestTurret(List<GameObject> turrets)
@@ -108,19 +128,5 @@ namespace Game.Control
             return distanceToTarget <= attackRange;
         }
 
-        public void DeleteTurretOnDestroy(GameObject turret)
-        {
-            turrets.Remove(turret);
-        }
-
-        public void AddTurretToList(GameObject turretPlaced)
-        {
-            turrets.Add(turretPlaced);
-        }
-
-        public void RemoveTurret(GameObject turretPlaced)
-        {
-            turrets.Remove(turretPlaced);
-        }
     }
 }
