@@ -11,7 +11,12 @@ namespace Game.Movement
 
     public class Dragger : MonoBehaviour
     {
+        [Header("Economy")]
         [SerializeField] GameEconomy gameEconomy;
+
+        [Header("Audio clips")]
+        [SerializeField] AudioSource placedEffect;
+        [SerializeField] AudioSource noMoneyEffect;
 
         private List<GameObject> enemies = new List<GameObject>();
         private List<GameObject> objectsPlaced = new List<GameObject>();
@@ -62,6 +67,8 @@ namespace Game.Movement
             objectsPlaced.Add(prefabToInstantiate);
             gameEconomy.SpendMoney(objectPrefab.GetComponent<ObjectEconomy>().GetPrice());
 
+            placedEffect.Play();
+
             if (objectsPlaced.Count > 0)
                 lastObjectPlaced = objectsPlaced[objectsPlaced.Count - 1];
         }
@@ -82,7 +89,10 @@ namespace Game.Movement
         {
             var price = objectToPlace.GetComponent<ObjectEconomy>().GetPrice();
             if (!gameEconomy.CanBuy(price))
+            {
+                noMoneyEffect.Play();
                 return false;
+            }
             
             var colliders = Physics.OverlapSphere(positionToInstantiate, 2.5f);
             foreach (var collider in colliders)

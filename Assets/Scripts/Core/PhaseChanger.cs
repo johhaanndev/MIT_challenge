@@ -16,6 +16,10 @@ namespace Game.Core
         [SerializeField] GameObject planningButtons;
         [SerializeField] GameObject fightCanvas;
 
+        [Header("Soundtrack")]
+        [SerializeField] AudioSource planningMusic;
+        [SerializeField] AudioSource fightMusic;
+
         private Phase phase;
 
         // Start is called before the first frame update
@@ -27,12 +31,16 @@ namespace Game.Core
         public void StartFight()
         {
             phase = Phase.Fight;
+            planningMusic.Stop();
+            fightMusic.Play();
             planningButtons.SetActive(false);
             fightCanvas.SetActive(true);
         }
 
         public void FinishGame()
         {
+            fightMusic.Stop();
+            planningMusic.Play();
             phase = Phase.End;
         }
 
