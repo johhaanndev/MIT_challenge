@@ -66,10 +66,11 @@ namespace Game.Fight
 
         }
 
-        public void AttackAction(GameObject target)
+        public void AttackAction(GameObject target, float range)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             turretTarget = target.GetComponent<Health>();
+            weaponRange = range;
         }
 
         private void Shoot(Vector3 from, Vector3 targetPosition)

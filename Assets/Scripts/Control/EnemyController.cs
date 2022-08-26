@@ -64,7 +64,7 @@ namespace Game.Control
 
         private void AttackBehaviour()
         {
-            fighter.AttackAction(target);
+            fighter.AttackAction(target, attackRange);
         }
 
         private void PursueBehaviour()
